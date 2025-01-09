@@ -1,0 +1,39 @@
+<!-- Modal -->
+<div class="modal fade" id="addColumnModal" tabindex="-1" aria-labelledby="addColumnModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="addColumnModalLabel">New {{ tableName }} column</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form id="columnForm" onsubmit="addColumn('columnForm', {{ tableName }}')">
+            <label for="columnName" class="form-label"> Column name </label>
+            <input type="text" class="form-control" id="columnName" name="columnName">
+            <br />
+            <label for="columnType" class="form-label"> Column type </label>
+            <select class="form-control" id="columnType" name="columnType">
+                <option value="str">Text</option>
+                <option value="int">Integer</option>
+                <option value="float">Decimal</option>
+                <option value="date">Date</option>
+                <option value="time">Time</option>
+                <option value="datetime">Datetime</option>
+                <option value="bool">Boolean</option>
+                <option value="blob">Blob</option>
+            </select>
+            <label for="not_null" class="form-label"> Not null </label>
+            <input type="checkbox" class="form-check-input" id="not_null" name="not_null">
+            <br />
+            <label for="default" class="form-label"> Default </label>
+            <input type="text" class="form-control" id="default" name="default">
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="addColumn('columnForm', '{{ tableName }}')">Add column</button>
+    </div>
+    </div>
+</div>
+</div>

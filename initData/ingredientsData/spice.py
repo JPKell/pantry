@@ -11,7 +11,7 @@ spice = {
         "subcategory":"salt", 
         "kosher":"pareve",
         "tags": "seasoning, baking, curing, preserving, pickling, brining",
-        "conversions": {
+        "knownConversions": {
             "cup": 273,       
         }
     },
@@ -26,7 +26,7 @@ spice = {
         "subcategory":"yeast", 
         "kosher":"pareve",
         "tags": "vegan, cheese, seasoning",
-        "conversions": {
+        "knownConversions": {
             "cup": 44,      
         }
     },
@@ -40,7 +40,7 @@ spice = {
         "subcategory":"salt", 
         "kosher":"pareve",
         "tags": "seasoning, finishing, garnish",
-        "conversions": {
+        "knownConversions": {
             "tsp": 6,      
         }
     },
@@ -54,7 +54,7 @@ spice = {
         "subcategory":"pepper", 
         "kosher":"pareve",
         "tags": "seasoning, finishing, garnish",
-        "conversions": {
+        "knownConversions": {
             "cup": 134.5,      
         }
     },
@@ -68,7 +68,7 @@ spice = {
         "subcategory":"cumin", 
         "kosher":"pareve",
         "tags": "seasoning, curry, chili, taco",
-        "conversions": {
+        "knownConversions": {
             "cup": 96,      
         }
     },
@@ -82,7 +82,7 @@ spice = {
         "subcategory":"coriander", 
         "kosher":"pareve",
         "tags": "seasoning, curry, chili, taco",
-        "conversions": {
+        "knownConversions": {
             "cup": 115,      
         }
     },
@@ -96,7 +96,7 @@ spice = {
         "subcategory":"cardamom", 
         "kosher":"pareve",
         "tags": "seasoning, curry, chili, taco",
-        "conversions": {
+        "knownConversions": {
             "cup": 96,      
         }
     },
@@ -110,7 +110,7 @@ spice = {
         "subcategory":"cinnamon", 
         "kosher":"pareve",
         "tags": "seasoning, curry, chili, taco",
-        "conversions": {
+        "knownConversions": {
             "g": 1/2,      
         }
     },
@@ -124,7 +124,7 @@ spice = {
         "subcategory":"cloves", 
         "kosher":"pareve",
         "tags": "seasoning, curry, chili, taco",
-        "conversions": {
+        "knownConversions": {
             "cup": 96,      
         }
     },
@@ -138,7 +138,7 @@ spice = {
         "subcategory":"nutmeg", 
         "kosher":"pareve",
         "tags": "seasoning, curry, chili, taco",
-        "conversions": {
+        "knownConversions": {
             "cup": 96,  
             "whole": 1/7.5,
             "each": 1/7.5,
@@ -155,7 +155,7 @@ spice = {
         "subcategory":"bay leaf", 
         "kosher":"pareve",
         "tags": "seasoning, stocks, soups, stews",
-        "conversions": {
+        "knownConversions": {
             "g": 1/0.2,      
         }
     },
@@ -169,8 +169,8 @@ spice = {
         "subcategory":"star anise", 
         "kosher":"pareve",
         "tags": "seasoning, asian, curry",
-        "conversions": {
-            "g": 1/28,      
+        "knownConversions": {
+            "g": 1/2,      
         }
     },
     "fennel seed":{
@@ -183,7 +183,7 @@ spice = {
         "subcategory":"fennel seed", 
         "kosher":"pareve",
         "tags": "seasoning, italian, sausage",
-        "conversions": {
+        "knownConversions": {
             "cup": 105,      
         }
     },
@@ -197,7 +197,7 @@ spice = {
         "subcategory":"paprika", 
         "kosher":"pareve",
         "tags": "seasoning, spanish, bbq",
-        "conversions": {
+        "knownConversions": {
             "cup": 115,      
         }
     },
@@ -211,7 +211,7 @@ spice = {
         "subcategory":"paprika", 
         "kosher":"pareve",
         "tags": "seasoning, spanish, bbq",
-        "conversions": {
+        "knownConversions": {
             "cup": 115,      
         }
     },
@@ -225,7 +225,7 @@ spice = {
         "subcategory":"mustard", 
         "kosher":"pareve",
         "tags": "seasoning, condiment, sauce",
-        "conversions": {
+        "knownConversions": {
             "cup": 96,      
         }
     },
@@ -239,7 +239,7 @@ spice = {
         "subcategory":"mustard",
         "kosher":"pareve",
         "tags": "seasoning, condiment, sauce",
-        "conversions": {
+        "knownConversions": {
             "cup": 90,
         }
     },
@@ -253,7 +253,7 @@ spice = {
         "subcategory":"thyme", 
         "kosher":"pareve",
         "tags": "seasoning, french, italian",
-        "conversions": {
+        "knownConversions": {
             "cup": 43,      
         }
     },
@@ -267,7 +267,7 @@ spice = {
         "subcategory":"oregano", 
         "kosher":"pareve",
         "tags": "seasoning, italian, greek",
-        "conversions": {
+        "knownConversions": {
             "cup": 48,      
         }
     },
@@ -281,7 +281,7 @@ spice = {
         "subcategory":"cayenne", 
         "kosher":"pareve",
         "tags": "seasoning, spicy, chili",
-        "conversions": {
+        "knownConversions": {
             "cup": 90,      
         }
     },
@@ -295,7 +295,7 @@ spice = {
         "subcategory":"garlic", 
         "kosher":"pareve",
         "tags": "seasoning, condiment, sauce",
-        "conversions": {
+        "knownConversions": {
             "cup": 155,      
         }
     },
@@ -309,7 +309,7 @@ spice = {
         "subcategory":"onion", 
         "kosher":"pareve",
         "tags": "seasoning, condiment, sauce",
-        "conversions": {
+        "knownConversions": {
             "cup": 110,      
         }
     },
@@ -323,7 +323,7 @@ spice = {
         "subcategory":"ginger",
         "kosher":"pareve",
         "tags": "seasoning, asian, curry",
-        "conversions": {
+        "knownConversions": {
             "cup": 83,
         }
     },
@@ -337,7 +337,7 @@ spice = {
         "subcategory":"turmeric",
         "kosher":"pareve",
         "tags": "seasoning, asian, curry",
-        "conversions": {
+        "knownConversions": {
             "cup": 150,
         }
     },
@@ -351,7 +351,7 @@ spice = {
         "subcategory":"sumac",
         "kosher":"pareve",
         "tags": "seasoning, middle eastern, salad",
-        "conversions": {
+        "knownConversions": {
             "cup": 141,
         }
     },
@@ -365,7 +365,7 @@ spice = {
         "subcategory":"allspice",
         "kosher":"pareve",
         "tags": "seasoning, caribbean, curry",
-        "conversions": {
+        "knownConversions": {
             "cup": 80,
         }
     },
@@ -379,7 +379,7 @@ spice = {
         "subcategory":"caraway",
         "kosher":"pareve",
         "tags": "seasoning, german, bread",
-        "conversions": {
+        "knownConversions": {
             "cup": 107,
         }
     },
@@ -393,7 +393,7 @@ spice = {
         "subcategory":"italian seasoning",
         "kosher":"pareve",
         "tags": "seasoning, italian, pasta",
-        "conversions": {
+        "knownConversions": {
             "cup": 112,
         }
     },
@@ -407,7 +407,7 @@ spice = {
         "subcategory":"dill",
         "kosher":"pareve",
         "tags": "seasoning, european, fish",
-        "conversions": {
+        "knownConversions": {
             "cup": 50,
         }
     },
@@ -421,7 +421,7 @@ spice = {
         "subcategory":"lime leaves",
         "kosher":"pareve",
         "tags": "seasoning, asian, curry",
-        "conversions": {
+        "knownConversions": {
             "cup": 20,
         }
     },
@@ -435,7 +435,7 @@ spice = {
         "subcategory":"chili",
         "kosher":"pareve",
         "tags": "seasoning, spicy, chili",
-        "conversions": {
+        "knownConversions": {
             "cup": 128,
         }
     },
@@ -449,7 +449,7 @@ spice = {
         "subcategory":"anise",
         "kosher":"pareve",
         "tags": "seasoning, asian, curry",
-        "conversions": {
+        "knownConversions": {
             "cup": 115,
         }
     },
@@ -463,7 +463,7 @@ spice = {
         "subcategory":"celery",
         "kosher":"pareve",
         "tags": "seasoning, salad, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 134,
         }
     },
@@ -477,7 +477,7 @@ spice = {
         "subcategory":"chili",
         "kosher":"pareve",
         "tags": "seasoning, spicy, chili",
-        "conversions": {
+        "knownConversions": {
             "cup": 128,
         }
     },
@@ -491,7 +491,7 @@ spice = {
         "subcategory":"celery",
         "kosher":"pareve",
         "tags": "seasoning, salad, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 134,
         }
     },
@@ -505,7 +505,7 @@ spice = {
         "subcategory":"basil",
         "kosher":"pareve",
         "tags": "seasoning, italian, pasta",
-        "conversions": {
+        "knownConversions": {
             "cup": 33,
         }
     },
@@ -519,7 +519,7 @@ spice = {
         "subcategory":"curry",
         "kosher":"pareve",
         "tags": "seasoning, asian, curry",
-        "conversions": {
+        "knownConversions": {
             "cup": 115,
         }
     },
@@ -533,7 +533,7 @@ spice = {
         "subcategory":"zaatar",
         "kosher":"pareve",
         "tags": "seasoning, middle eastern, salad",
-        "conversions": {
+        "knownConversions": {
             "cup": 167,
         }
     },
@@ -547,7 +547,7 @@ spice = {
         "subcategory":"rosemary",
         "kosher":"pareve",
         "tags": "seasoning, italian, pasta",
-        "conversions": {
+        "knownConversions": {
             "cup": 8,
         }
     },
@@ -561,7 +561,7 @@ spice = {
         "subcategory":"rosemary",
         "kosher":"pareve",
         "tags": "seasoning, italian, pasta",
-        "conversions": {
+        "knownConversions": {
             "cup": 8,
         }
     },
@@ -575,7 +575,7 @@ spice = {
         "subcategory":"turmeric",
         "kosher":"pareve",
         "tags": "seasoning, asian, curry",
-        "conversions": {
+        "knownConversions": {
             "cup": 150,
         }
     },

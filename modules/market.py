@@ -89,8 +89,8 @@ class Market:
 
         self.db.insert("markets", _dict)
         for name, data in ingredients.items():
-            data['ingredient'] = name
-            data['market'] = self.name
+            data['ingredient'] = name.replace("'", "''")
+            data['market'] = self.name.replace("'", "''")
 
             self.db.insert("market_ingredients", data)
 

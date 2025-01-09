@@ -1,0 +1,45 @@
+<div class="container-fluid my-5">
+    Something here to filter the table
+</div>
+
+<table class="table table-striped-columns table-hover">
+  <thead>
+    <tr>
+    {% for name, col in colInfo.items() %}
+      <th>{{ name }}</th>
+    {% endfor %}
+      <th>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#addColumnModal">
+          <svg class="bi"><use xlink:href="#plus-circle"/></svg>
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in table %}
+    <tr>
+        {% for value in row.values() %}
+      <td> {{ value }} </td>
+        {% endfor %}
+      <td><a href="" onclick="loadEditRecordModal('{{ tableName }}',{{ row['id'] }})" data-bs-toggle="modal" data-bs-target="#editRecordModal"><svg class="bi"><use xlink:href="#gear"/></svg></a></td>
+     </tr>
+    {% endfor %}
+    <tr>
+      <td>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#addRecordModal">
+          <svg class="bi"><use xlink:href="#plus-circle"/></svg>
+        </a>
+      </td>
+        {% for i in range(colInfo|length) %}
+      <td></td>
+        {% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Include modals -->
+{% include 'includes/newRecordModal.html' %}
+{% include 'includes/newColumnModal.html' %}
+{% include 'includes/editRecordModal.html' %}
+

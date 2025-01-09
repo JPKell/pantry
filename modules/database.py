@@ -36,7 +36,7 @@ class Db:
         if not self.db_path:
             raise Exception("Database path not set")
 
-        self.conn = sqlite3.connect(self.db_path)
+        self.conn = sqlite3.connect(self.db_path, check_same_thread=False)
         # Return rows as dictionaries
         self.conn.row_factory = sqlite3.Row
 
@@ -84,7 +84,7 @@ class Db:
         for field, value in data.items():
             fields += f"{field}, "
             if isinstance(value, str):
-                values += f"'{value}', "
+                values += f"'{value.replace("'","''")}', "
             elif isinstance(value, dt.date):
                 values += f"'{value.strftime(self.DATE_FORMAT)}', "
             elif isinstance(value, dt.datetime):

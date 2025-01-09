@@ -11,7 +11,7 @@ wetGoods = {
         "subcategory":"water", 
         "kosher":"pareve",
         "tags": "beverage",
-        "conversions": {
+        "knownConversions": {
             "g": 1,       
         }
     },
@@ -25,7 +25,7 @@ wetGoods = {
         "subcategory":"oil", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
-        "conversions": {    
+        "knownConversions": {    
             "g": 216.65/CUP, # 1 cup = 216.65g      
         }
     },
@@ -39,7 +39,7 @@ wetGoods = {
         "subcategory":"coffee", 
         "kosher":"pareve",
         "tags": "beverage",
-        "conversions": {
+        "knownConversions": {
             "ml": 1.8 / TSP,       
         }
     },
@@ -53,7 +53,7 @@ wetGoods = {
         "subcategory":"coffee", 
         "kosher":"pareve",
         "tags": "beverage",
-        "conversions": {
+        "knownConversions": {
             "cup": 82,       # 1 cup = 82g therefore 82/453.592 = 0.18
         }
     },
@@ -67,7 +67,7 @@ wetGoods = {
         "subcategory":"vinegar", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
-        "conversions": {
+        "knownConversions": {
             "g": (255/CUP), # 1 cup = 255       
         }
     },
@@ -81,7 +81,7 @@ wetGoods = {
         "subcategory":"vinegar", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
-        "conversions": {
+        "knownConversions": {
             "g": (240/CUP),      
         }
     },
@@ -95,7 +95,7 @@ wetGoods = {
         "subcategory":"oil", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
-        "conversions": {
+        "knownConversions": {
             "g": (224/CUP),      
         }
     },
@@ -109,7 +109,7 @@ wetGoods = {
         "subcategory":"oil", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
-        "conversions": {
+        "knownConversions": {
             "g": (218/CUP),      
         }
     },
@@ -124,7 +124,7 @@ wetGoods = {
         "subcategory":"sauce",
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
-        "conversions": {
+        "knownConversions": {
             "g": 1.2,
         }
     },
@@ -138,7 +138,7 @@ wetGoods = {
         "subcategory":"sauce",
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
-        "conversions": {
+        "knownConversions": {
             "cup": 225.6,
         }
     },
@@ -152,7 +152,7 @@ wetGoods = {
         "subcategory":"spread",
         "kosher":"pareve",
         "tags": "spread, sandwich, dip",
-        "conversions": {
+        "knownConversions": {
             "cup": 230,
         }
     },
@@ -166,8 +166,22 @@ wetGoods = {
         "subcategory":"mustard",
         "kosher":"pareve",
         "tags": "spread, sandwich, dip",
-        "conversions": {
+        "knownConversions": {
             "cup": 250,
+        }
+    },
+        "white wine vinegar" : {
+        "displayName":"white wine vinegar",
+        "measurement":"ml",
+        "rawStorage":"room temperature",
+        "processedStorage":"room temperature",
+        "shelfLife":365,
+        "category":"liquid",
+        "subcategory":"vinegar",
+        "kosher":"pareve",
+        "tags": "main, side, snack",
+        "knownConversions": {
+            "g": 1/240,
         }
     },
         "red wine vinegar" : {
@@ -180,7 +194,7 @@ wetGoods = {
         "subcategory":"vinegar",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
+        "knownConversions": {
             "g": 1/240,
         }
     },
@@ -194,9 +208,107 @@ wetGoods = {
         "subcategory":"oil",
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
-        "conversions": {
+        "knownConversions": {
             "g": (218/CUP),      
-
         }
     },
+    "soy sauce" : {
+        "displayName":"soy sauce",
+        "measurement":"ml",
+        "rawStorage":"room temperature",
+        "processedStorage":"room temperature",
+        "shelfLife":365,
+        "category":"liquid",
+        "subcategory":"sauce",
+        "kosher":"pareve",
+        "tags": "cooking, salad, dressing",
+        "knownConversions": {
+            "g": 255/CUP,
+        }
+    },
+    "light soy sauce" : {
+        "displayName":"light soy sauce",
+        "measurement":"ml",
+        "rawStorage":"room temperature",
+        "processedStorage":"room temperature",
+        "shelfLife":365,
+        "category":"liquid",
+        "subcategory":"sauce",
+        "kosher":"pareve",
+        "tags": "cooking, salad, dressing",
+        "knownConversions": {
+            "g": 255/CUP,
+        }
+    },
+    "apple cider": {
+        "displayName":"apple cider",
+        "measurement":"ml",
+        "rawStorage":"room temperature",
+        "processedStorage":"room temperature",
+        "shelfLife":365,
+        "category":"liquid",
+        "subcategory":"cider",
+        "kosher":"pareve",
+        "tags": "beverage",
+        "knownConversions": {
+            "g": 248/CUP,
+        }
+    },
+    "maple syrup": {
+        "displayName":"maple syrup",
+        "measurement":"ml",
+        "rawStorage":"room temperature",
+        "processedStorage":"room temperature",
+        "shelfLife":365,
+        "category":"liquid",
+        "subcategory":"syrup",
+        "kosher":"pareve",
+        "tags": "sweetener",
+        "knownConversions": {
+            "g": 240/CUP,
+        }
+    },
+    "dijon mustard": {
+        "displayName":"dijon mustard",
+        "measurement":"g",
+        "rawStorage":"room temperature",
+        "processedStorage":"room temperature",
+        "shelfLife":365,
+        "category":"spice",
+        "subcategory":"mustard",
+        "kosher":"pareve",
+        "tags": "spread, sandwich, dip",
+        "knownConversions": {
+            "cup": 240,
+        }
+    },
+    "tahini": {
+        "displayName":"tahini",
+        "measurement":"g",
+        "rawStorage":"room temperature",
+        "processedStorage":"refrigerator",
+        "shelfLife":365,
+        "category":"fat",
+        "subcategory":"spread",
+        "kosher":"pareve",
+        "tags": "spread, sandwich, dip",
+        "knownConversions": {
+            "cup": 240/CUP,
+        }
+    },
+    "rice vinegar": {
+        "displayName":"rice vinegar",
+        "measurement":"ml",
+        "rawStorage":"room temperature",
+        "processedStorage":"room temperature",
+        "shelfLife":365,
+        "category":"liquid",
+        "subcategory":"vinegar",
+        "kosher":"pareve",
+        "tags": "main, side, snack",
+        "knownConversions": {
+            "g": 1/240,
+        }
+    },
+    
 }

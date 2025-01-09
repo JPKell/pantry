@@ -11,7 +11,7 @@ fresh = {
         "subcategory":"tofu",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
+        "knownConversions": {
             "cup": 252,
         }
     },

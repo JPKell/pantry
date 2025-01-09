@@ -1,0 +1,25 @@
+<!-- Modal -->
+<div class="modal fade" id="editRecordModal" tabindex="-1" aria-labelledby="editRecordModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="editRecordModalLabel">Edit record</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form id="editRecordForm" onsubmit="editRecord('editRecordForm', '{{ tableName }}')">
+            {% for col in colInfo %}
+            <label for="{{ col['name'] }}" class="form-label"> {{ col['name'] }} </label>
+            <input type="text" class="form-control" id="{{ col['name'] }}" name="{{col['name']}}" value="" {% if col['name'] == 'id' %} disabled {% endif %}>
+            <br/>
+            {% endfor %}
+            <hr/>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="editRecord('editRecordForm', '{{ tableName }}')">Save changes</button>
+    </div>
+    </div>
+</div>
+</div>

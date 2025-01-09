@@ -11,7 +11,7 @@ dryGoods = {
         "subcategory":"sesame", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
-        "conversions": {
+        "knownConversions": {
             "cup": 134.4,      
         }
     },
@@ -25,7 +25,7 @@ dryGoods = {
         "subcategory":"peanut", 
         "kosher":"pareve",
         "tags": "spread, sandwich, snack",
-        "conversions": {
+        "knownConversions": {
             "cup": 256,      
         }
     },
@@ -39,7 +39,7 @@ dryGoods = {
         "subcategory":"rice", 
         "kosher":"pareve",
         "tags": "side, main, asian, grain, jasmine",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,      
         }
     },
@@ -53,7 +53,7 @@ dryGoods = {
         "subcategory":"popcorn", 
         "kosher":"pareve",
         "tags": "snack, side, grain",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,      
         }
     },
@@ -67,9 +67,10 @@ dryGoods = {
         "subcategory":"bread", 
         "kosher":"pareve",
         "tags": "breading, coating, frying",
-        "conversions": {
+        "knownConversions": {
             "cup": 60,      
-        }
+        },
+
     },
     
     "dates" : {
@@ -82,7 +83,7 @@ dryGoods = {
         "subcategory":"dried", 
         "kosher":"pareve",
         "tags": "snack, sweet, baking",
-        "conversions": {
+        "knownConversions": {
             "cup": 80,      
         }
     },
@@ -97,7 +98,7 @@ dryGoods = {
         "subcategory":"corn", 
         "kosher":"pareve",
         "tags": "side, main, grain",
-        "conversions": {
+        "knownConversions": {
             "cup": 160,      
         }
     },
@@ -111,7 +112,7 @@ dryGoods = {
         "subcategory":"oats", 
         "kosher":"pareve",
         "tags": "breakfast, snack, baking",
-        "conversions": {
+        "knownConversions": {
             "cup": 80,      
         }
     },
@@ -126,12 +127,12 @@ dryGoods = {
         "subcategory":"walnut", 
         "kosher":"pareve",
         "tags": "snack, baking, salad",
-        "conversions": {
+        "knownConversions": {
             "cup": 112,      
         }
     },
-    "dry spaghetti" : {
-        "displayName":"dry spaghetti",
+    "dried spaghetti" : {
+        "displayName":"dried spaghetti",
         "measurement":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"refrigerator", 
@@ -140,7 +141,7 @@ dryGoods = {
         "subcategory":"pasta", 
         "kosher":"pareve",
         "tags": "main, side, italian",
-        "conversions": {
+        "knownConversions": {
             "cup": 91,      
         }
     },
@@ -154,7 +155,7 @@ dryGoods = {
         "subcategory":"pumpkin",
         "kosher":"pareve",
         "tags": "snack, salad, baking",
-        "conversions": {
+        "knownConversions": {
             "cup": 124,
         }
     },
@@ -168,7 +169,7 @@ dryGoods = {
         "subcategory":"almond",
         "kosher":"pareve",
         "tags": "snack, salad, baking",
-        "conversions": {
+        "knownConversions": {
             "cup": 160,
         }
     },
@@ -182,7 +183,7 @@ dryGoods = {
         "subcategory":"rice",
         "kosher":"pareve",
         "tags": "main, side, italian",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,
         }
     },
@@ -196,11 +197,11 @@ dryGoods = {
         "subcategory":"sunflower",
         "kosher":"pareve",
         "tags": "snack, salad, baking",
-        "conversions": {
+        "knownConversions": {
             "cup": 120,
         }
     },
-    "dry pinto beans": {
+    "dried pinto beans": {
         "displayName":"pinto beans",
         "measurement":"g",
         "rawStorage":"room temperature",
@@ -210,11 +211,11 @@ dryGoods = {
         "subcategory":"bean",
         "kosher":"pareve",
         "tags": "main, side, mexican",
-        "conversions": {
+        "knownConversions": {
             "cup": 140,
         }
     },
-    "dry kidney beans": {
+    "dried kidney beans": {
         "displayName":"kidney beans",
         "measurement":"g",
         "rawStorage":"room temperature",
@@ -224,11 +225,11 @@ dryGoods = {
         "subcategory":"bean",
         "kosher":"pareve",
         "tags": "main, side, chili",
-        "conversions": {
+        "knownConversions": {
             "cup": 140,
         }
     },
-    "dry shitake mushrooms": {
+    "dried shitake mushrooms": {
         "displayName":"shitake mushrooms",
         "measurement":"g",
         "rawStorage":"room temperature",
@@ -238,11 +239,12 @@ dryGoods = {
         "subcategory":"mushroom",
         "kosher":"pareve",
         "tags": "main, side, asian",
-        "conversions": {
+        "knownConversions": {
             "cup": 28,
-        }
+        },
+        "alternatives": ["dried wild mushrooms"]
     },
-    "dry red lentils": {
+    "dried red lentils": {
         "displayName":"red lentils",
         "measurement":"g",
         "rawStorage":"room temperature",
@@ -252,11 +254,11 @@ dryGoods = {
         "subcategory":"lentil",
         "kosher":"pareve",
         "tags": "main, side, indian",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,
         }
     },
-    "dry green lentils": {
+    "dried green lentils": {
         "displayName":"green lentils",
         "measurement":"g",
         "rawStorage":"room temperature",
@@ -266,12 +268,12 @@ dryGoods = {
         "subcategory":"lentil",
         "kosher":"pareve",
         "tags": "main, side, french",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,
         }
     },
-    "dry bean soup mix": {
-        "displayName":"dry bean soup mix",
+    "dried bean soup mix": {
+        "displayName":"dried bean soup mix",
         "measurement":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
@@ -280,12 +282,12 @@ dryGoods = {
         "subcategory":"soup",
         "kosher":"pareve",
         "tags": "main, side, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,
         }
     },
-    "dry black eyed beans": {
-        "displayName":"dry black eyed beans",
+    "dried black eyed beans": {
+        "displayName":"dried black eyed beans",
         "measurement":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
@@ -294,12 +296,12 @@ dryGoods = {
         "subcategory":"bean",
         "kosher":"pareve",
         "tags": "main, side, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,
         }
     },
-    "dry black beans": {
-        "displayName":"dry black beans",
+    "dried black beans": {
+        "displayName":"dried black beans",
         "measurement":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
@@ -308,7 +310,7 @@ dryGoods = {
         "subcategory":"bean",
         "kosher":"pareve",
         "tags": "main, side, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 150,
         }
     },
@@ -322,7 +324,7 @@ dryGoods = {
         "subcategory":"cherry",
         "kosher":"pareve",
         "tags": "snack, salad, baking",
-        "conversions": {
+        "knownConversions": {
             "cup": 140,
         }
     },
@@ -338,7 +340,7 @@ dryGoods = {
         "subcategory":"noodle",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
+        "knownConversions": {
             "g": 120,
         }
     },
@@ -352,7 +354,7 @@ dryGoods = {
         "subcategory":"chip",
         "kosher":"pareve",
         "tags": "snack, side, dip",
-        "conversions": {
+        "knownConversions": {
             "cup": 26,
         }
     },
@@ -366,7 +368,7 @@ dryGoods = {
         "subcategory":"meal",
         "kosher":"pareve",
         "tags": "baking, coating, frying",
-        "conversions": {
+        "knownConversions": {
             "cup": 127,
         }
     },
@@ -380,7 +382,7 @@ dryGoods = {
         "subcategory":"chickpea",
         "kosher":"pareve",
         "tags": "main, side, salad",
-        "conversions": {
+        "knownConversions": {
             "cup": 190,
         }
     },
@@ -394,7 +396,7 @@ dryGoods = {
         "subcategory":"fava",
         "kosher":"pareve",
         "tags": "main, side, salad",
-        "conversions": {
+        "knownConversions": {
             "cup": 220,
         }
     },
@@ -408,8 +410,37 @@ dryGoods = {
         "subcategory":"bean",
         "kosher":"pareve",
         "tags": "main, side, salad",
-        "conversions": {
+        "knownConversions": {
             "cup": 190,
+        }
+    },
+    "dried wild mushrooms": {
+        "displayName":"dried wild mushrooms",
+        "measurement":"g",
+        "rawStorage":"room temperature",
+        "processedStorage":"refrigerator",
+        "shelfLife":365,
+        "category":"fungus",
+        "subcategory":"mushroom",
+        "kosher":"pareve",
+        "tags": "main, side, salad",
+        "knownConversions": {
+            "cup": 28,
+        }
+    },
+    "dried habanero": {
+        "displayName":"dried habanero",
+        "measurement":"g",
+        "rawStorage":"room temperature",
+        "processedStorage":"room temperature",
+        "shelfLife":365,
+        "category":"pepper",
+        "subcategory":"habanero",
+        "kosher":"pareve",
+        "tags": "spicy, main, side",
+        "knownConversions": {
+            "cup": 37,
+            "each": 1,
         }
     },
  }

@@ -8,6 +8,7 @@ from initData.ingredientsData.fruitAndVeg import fruitAndVeg
 from initData.ingredientsData.spice import spice
 from initData.ingredientsData.wetGoods import wetGoods
 from initData.ingredientsData.greens import greens
+from initData.ingredientsData.frozen import frozen
 
 initIngredients = baking.copy()
 initIngredients.update(cannedGoods)
@@ -18,6 +19,4 @@ initIngredients.update(fruitAndVeg)
 initIngredients.update(spice)
 initIngredients.update(wetGoods)
 initIngredients.update(greens)
-
-
-# 216.65/236.588 = 0.914 
+initIngredients.update(frozen)

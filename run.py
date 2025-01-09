@@ -10,6 +10,7 @@ from modules.recipe import Recipe
 from modules.pantry import Pantry
 from modules.market import Market
 from modules.chef import Chef
+from modules.converter import Converter
 
 pantry = Pantry()
 chef = Chef(pantry)
@@ -44,13 +45,13 @@ initData = {
         }
 # Recipe("test bread", initData=initData)
 
-mirepoix = Recipe("mirepoix")
-print(mirepoix.name, mirepoix.yields, mirepoix.yieldUnit, mirepoix.servings, mirepoix.servingUnit, mirepoix.scale)
+# bb = Recipe("baba ghanoush", db=db)
+# print(chef.totalRecipePrice(bb))
+# for x, v in chef.detailedRecipePrice(bb).items():
+#     print(x,v )
 
-mirepoix = Recipe("mirepoix", yieldQty=800)
-print(mirepoix.name, mirepoix.yields, mirepoix.yieldUnit, mirepoix.servings, mirepoix.servingUnit, mirepoix.scale)
+from test.init_db import test_db
+r = Ingredient("ap flour", db=test_db)
 
-mirepoix = Recipe("mirepoix", yieldQty=0.8, yieldUnit="kg")
-print(mirepoix.name, mirepoix.yields, mirepoix.yieldUnit, mirepoix.servings, mirepoix.servingUnit, mirepoix.scale)
-
-print(mirepoix.ingredient.servings, mirepoix.ingredient.servingUnit, mirepoix.ingredient.scale)
+for k,v in r.__dict__.items():
+    print(k,v)

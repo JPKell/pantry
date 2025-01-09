@@ -88,7 +88,7 @@ class Chef:
         totals = {}
         for ingredient in self.pantry.stored:
             lowestPrice = self.findBestIngredientPrice(ingredient)
-            totals.update({ingredient.name: lowestPrice})
+            totals.update({ingredient.name: {"qty": ingredient.qty, "marketDict":  lowestPrice}})
         return totals
 
     def totalPantryValue(self):

@@ -27,7 +27,7 @@ class TestIngredients(unittest.TestCase):
             "kosher":"pareve",
             "notes":"keep dry",
             "tags": "baking, thickening, breading, coating, dredging, roux",
-            "conversions": {"cup": 120}
+            "knownConversions": {"cup": 120}
         }
 
         Ingredient("test flour", 
@@ -43,16 +43,18 @@ class TestIngredients(unittest.TestCase):
         with self.assertRaises(Exception):
             Ingredient("test flour",initData=initData, db=test_db)
 
-    ### There are 4 ingredients to test for conversion
-    ## There are 2 systems, metric and imperial
-    ## Each of these should be tested in the same type (mass to mass, mass to volume, volume to volume, volume to mass)
-    # Base unit metric mass - Flour
-    #   - mass to mass, mass to volume 
-    # Base unit metric volume - Water
-    #   - volume to volume, volume to mass 
-    # Base unit imperial mass - Coffee
-    #   - mass to mass, mass to volume
-    # Base unit imperial volume
+    def test_display_unit(self):
+        # AP flour weighs 120g per cup and it's base unit is g 
+        ap_flour = Ingredient("ap flour",qty=120, db=test_db)
+
+        # test display unit
+        self.assertEqual(ap_flour.measurement, "g")
+        self.assertEqual(ap_flour.qty, 120)
+
+        ap_flour.displayUnit = "cup"
+        self.assertEqual(ap_flour.displayUnit, "cup")
+        self.assertEqual(ap_flour.measurement, "cup")
+        self.assertEqual(ap_flour.qty, 1)
 
     def test_metric_mass_to_mass_conversions(self):
         # AP flour weighs 120g per cup and it's base unit is g 
@@ -80,6 +82,7 @@ class TestIngredients(unittest.TestCase):
 
         self.assertEqual(ap_flour.convert(120, toUnit="cup"), 1)
         self.assertAlmostEqual(ap_flour.convert(120, toUnit="tbsp"),CUP / TBSP)
+
         self.assertAlmostEqual(ap_flour.convert(120, toUnit="tsp"), CUP / TSP)
 
         self.assertAlmostEqual(ap_flour.convert(1, fromUnit="cup", toUnit='g'), 120)
@@ -141,6 +144,23 @@ class TestIngredients(unittest.TestCase):
         self.assertAlmostEqual(egg.convert(1, toUnit="l"), 0.044)
         self.assertAlmostEqual(egg.convert(1, toUnit="fl oz"), 44 / FL_OZ )
 
+    def test_each_to_bunch(self):
+        initData = {
+            "displayName":"widget",
+            "measurement":"each", 
+            "knownConversions": {"bunch": 10}
+        }
+
+        Ingredient("widget", initData=initData,db=test_db)
+
+        widget = Ingredient("widget", 1, db=test_db)
+        # # test conversions between volume and mass units
+        self.assertAlmostEqual(widget._qty, 1)
+        
+        self.assertAlmostEqual(widget.convert(1, toUnit="bunch"), 0.1)
+
+        widget = Ingredient("widget", 1, qtyUnit='bunch', db=test_db)
+        self.assertAlmostEqual(widget._qty, 10)
 
 if __name__ == '__main__':
     unittest.main()

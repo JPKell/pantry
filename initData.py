@@ -72,7 +72,6 @@ basicConversions = [
     {"name": "basic","isServings": False , "fromMeasure": "bunch", "factor": 1},
     {"name": "basic","isServings": False , "fromMeasure": "stick", "factor": 1},
     {"name": "basic","isServings": False , "fromMeasure": "sprig", "factor": 1},
-
 ]
 
 print("--Inserting basic conversions--")
@@ -117,15 +116,15 @@ pantry.addFood(Ingredient('corn grits', qty=340, qtyUnit='g'))
 pantry.addFood(Ingredient('cornmeal', qty=250, qtyUnit='g'))
 pantry.addFood(Ingredient('dried cherries', qty=75, qtyUnit='g'))
 pantry.addFood(Ingredient('dates', qty=300, qtyUnit='g'))
-pantry.addFood(Ingredient('dry bean soup mix', qty=290, qtyUnit='g'))
-pantry.addFood(Ingredient('dry black beans', qty=910, qtyUnit='g'))
-pantry.addFood(Ingredient('dry black eyed beans', qty=550, qtyUnit='g'))
-pantry.addFood(Ingredient('dry green lentils', qty=720, qtyUnit='g'))
-pantry.addFood(Ingredient('dry kidney beans', qty=900, qtyUnit='g'))
-pantry.addFood(Ingredient('dry pinto beans', qty=900, qtyUnit='g'))
-pantry.addFood(Ingredient('dry red lentils', qty=900, qtyUnit='g'))
-pantry.addFood(Ingredient('dry shitake mushrooms', qty=115, qtyUnit='g'))
-pantry.addFood(Ingredient('dry spaghetti', qty=500, qtyUnit='g'))
+pantry.addFood(Ingredient('dried bean soup mix', qty=290, qtyUnit='g'))
+pantry.addFood(Ingredient('dried black beans', qty=910, qtyUnit='g'))
+pantry.addFood(Ingredient('dried black eyed beans', qty=550, qtyUnit='g'))
+pantry.addFood(Ingredient('dried green lentils', qty=720, qtyUnit='g'))
+pantry.addFood(Ingredient('dried kidney beans', qty=900, qtyUnit='g'))
+pantry.addFood(Ingredient('dried pinto beans', qty=900, qtyUnit='g'))
+pantry.addFood(Ingredient('dried red lentils', qty=900, qtyUnit='g'))
+pantry.addFood(Ingredient('dried shitake mushrooms', qty=115, qtyUnit='g'))
+pantry.addFood(Ingredient('dried spaghetti', qty=500, qtyUnit='g'))
 pantry.addFood(Ingredient('extra firm tofu', qty=350, qtyUnit='g'))
 pantry.addFood(Ingredient('fish sauce', qty=150, qtyUnit='ml'))
 pantry.addFood(Ingredient('golden corn syrup', qty=80, qtyUnit='ml'))
@@ -231,30 +230,3 @@ for name, data in markets.items():
 
 print("--Done adding to database--")
 print()
-
-######################
-## Test that everything works 
-
-from modules.chef import Chef
-chef = Chef(pantry)
-
-print(f"Total pantry value is ${chef.totalPantryValue():.2f}")
-menu = chef.menu()
-
-pv = chef.detailedPantryValue()
-for ingredient, data in pv.items():
-    print(f"{ingredient:20} ... ${data['total']:.2f}")
-
-
-printDetails = False
-print()
-print("Menu pricing")
-for recipe, details in menu.items():
-    print(f"{recipe.capitalize()}")
-    print(f"{"":20}${details['totalPrice']:.2f} for {int(details['servings'])} servings" )
-    print(f"{"":20}${details['servingPrice']:.2f} per {details['servingUnit']}")
-    if printDetails:
-        for k,v in details['detailedPrice'].items():
-            print(f"\t{k:20} ... ${v['total']:.2f}")
-    print()
-

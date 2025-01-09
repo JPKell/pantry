@@ -11,7 +11,7 @@ cannedGoods = {
         "subcategory":"puree", 
         "kosher":"pareve",
         "tags": "sweet, baking, dessert",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,      
         }
     },
@@ -25,7 +25,7 @@ cannedGoods = {
         "subcategory":"chickpea",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,
         }
     },
@@ -40,7 +40,7 @@ cannedGoods = {
         "subcategory":"pea",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
+        "knownConversions": {
             "cup": 250,
         }
     },
@@ -54,7 +54,7 @@ cannedGoods = {
         "subcategory":"pineapple",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
+        "knownConversions": {
             "cup": 236,
         }
     },
@@ -69,11 +69,11 @@ cannedGoods = {
         "subcategory":"tomato",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
+        "knownConversions": {
             "cup": 236,
         }
     },
-        "canned plum tomato": {
+    "canned plum tomato": {
         "displayName":"canned plum tomato",
         "measurement":"ml",
         "rawStorage":"room temperature",
@@ -83,8 +83,36 @@ cannedGoods = {
         "subcategory":"tomato",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
-            "cup": 1 / (246 / CUP), # 1 cup = 246 g 
+        "knownConversions": {
+            "g": 1 / (246 / CUP), # 1 cup = 246 g 
+        }
+    },
+    "coconut milk": {
+        "displayName":"coconut milk",
+        "measurement":"ml",
+        "rawStorage":"room temperature",
+        "processedStorage":"refrigerator",
+        "shelfLife":365,
+        "category":"nut",
+        "subcategory":"coconut",
+        "kosher":"pareve",
+        "tags": "main, side, snack",
+        "knownConversions": {
+            "g": 244/CUP, # 1 cup = 244 g
+        }
+    },
+    "sun-dried tomato": {
+        "displayName":"sun-dried tomato",
+        "measurement":"g",
+        "rawStorage":"room temperature",
+        "processedStorage":"refrigerator",
+        "shelfLife":365,
+        "category":"fruit",
+        "subcategory":"tomato",
+        "kosher":"pareve",
+        "tags": "main, side, snack",
+        "knownConversions": {
+            "cup": 54, 
         }
     },
  }

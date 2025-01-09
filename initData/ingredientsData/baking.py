@@ -12,7 +12,7 @@ baking = {
         "kosher":"pareve",
         "notes":"keep dry",
         "tags": "baking, thickening, breading, coating, dredging, roux",
-        "conversions": {
+        "knownConversions": {
             "cup": 120,       
         }
     },
@@ -27,7 +27,7 @@ baking = {
         "kosher":"pareve",
         "notes":"quick-rise, keep dry and refrigerated",
         "tags": "bread, baking",
-        "conversions": {
+        "knownConversions": {
             "cup": 148.8,       
         }
     }, 
@@ -42,7 +42,7 @@ baking = {
         "kosher":"pareve",
         "notes":"granulated sugar, keep dry",
         "tags": "baking, sweet, dessert",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,       
         }
     },
@@ -56,7 +56,7 @@ baking = {
         "subcategory":"honey", 
         "kosher":"pareve",
         "tags": "sweet, baking, dessert",
-        "conversions": {
+        "knownConversions": {
             "g": 1 / (340/CUP), # 1 cup = 340g  
         }
     },
@@ -71,7 +71,7 @@ baking = {
         "subcategory":"cocoa", 
         "kosher":"pareve",
         "tags": "baking, dessert, sweet",
-        "conversions": {
+        "knownConversions": {
             "tbsp": 5,      
         }
     },
@@ -85,7 +85,7 @@ baking = {
         "subcategory":"flour", 
         "kosher":"pareve",
         "tags": "baking, bread, dense",
-        "conversions": {
+        "knownConversions": {
             "cup": 120,      
         }
     },
@@ -99,7 +99,7 @@ baking = {
         "subcategory":"gluten", 
         "kosher":"pareve",
         "tags": "baking, bread, dense",
-        "conversions": {
+        "knownConversions": {
             "cup": 120,      
         }
     },
@@ -114,7 +114,7 @@ baking = {
         "subcategory":"soda", 
         "kosher":"pareve",
         "tags": "baking, cleaning",
-        "conversions": {
+        "knownConversions": {
             "cup": 176,      
         }
     },
@@ -128,7 +128,7 @@ baking = {
         "subcategory":"powder", 
         "kosher":"pareve",
         "tags": "baking, leavening",
-        "conversions": {
+        "knownConversions": {
             "cup": 192,      
         }
     },
@@ -142,7 +142,7 @@ baking = {
         "subcategory":"extract", 
         "kosher":"pareve",
         "tags": "baking, sweet, dessert",
-        "conversions": {
+        "knownConversions": {
             "g": 208/CUP,      
         }
     },
@@ -156,7 +156,7 @@ baking = {
         "subcategory":"syrup", 
         "kosher":"pareve",
         "tags": "sweet, baking, dessert",
-        "conversions": {
+        "knownConversions": {
             "g": 328/CUP,      
         }
     },
@@ -170,7 +170,7 @@ baking = {
         "subcategory":"sugar", 
         "kosher":"pareve",
         "tags": "baking, sweet, dessert",
-        "conversions": {
+        "knownConversions": {
             "cup": 200,      
         }
     },
@@ -184,7 +184,7 @@ baking = {
         "subcategory":"corn",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
+        "knownConversions": {
             "cup": 164,
         }
     },
@@ -199,7 +199,7 @@ baking = {
         "subcategory":"flour",
         "kosher":"pareve",
         "tags": "main, side, snack",
-        "conversions": {
+        "knownConversions": {
             "cup": 92,
         }
     },
@@ -213,7 +213,7 @@ baking = {
         "subcategory":"syrup",
         "kosher":"pareve",
         "tags": "sweet, baking, dessert",
-        "conversions": {
+        "knownConversions": {
             "g": 328/CUP,
         }
     },
@@ -227,7 +227,7 @@ baking = {
         "subcategory":"butter",
         "kosher":"pareve",
         "tags": "spread, cooking, baking",
-        "conversions": {
+        "knownConversions": {
             "cup": 227,
         }
     },

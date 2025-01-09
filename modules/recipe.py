@@ -191,28 +191,6 @@ class Recipe:
     def size(self):
         ''' Size is used when the recipe is being used like an ingredient'''
         return sum([x.qty for x in self.ingredients])
-        
-    def console(self):
-        print(f"Name: {self.name}")
-
-        print(f"Servings: {self.servings * self.scale}")
-
-        if self.servingUnit:
-            print(f"Serving Size: {self.servingUnit}")
-
-        if self.preheat:
-            print(f"Preheat: {self.preheat}")
-
-        print(f"Ingredients:")
-        for ingredient in self.ingredients:
-            print(f"\t{ingredient}")
-            
-        print(f"Steps: ")
-        [ print(f'\t- {x}') for x in self.steps ]
-        
-        if self.notes:
-            print(f"Notes: {self.notes}")
-
 
     ## Private methods
     def __add_to_db__(self):
@@ -228,22 +206,28 @@ class Recipe:
 
         self.db.insert("recipes", _dict)
 
-        self.id = self.db.query(f"SELECT id FROM recipes WHERE name = '{self.name}'")[0]["id"]
+        self.id = self.db.query(f"SELECT id FROM recipes WHERE name = '{self.name.replace("'", "''")}'")[0]["id"]
         for ingredient in self.ingredients:
             if isinstance(ingredient, Recipe):
                 size = "NULL"
                 if ingredient.servingUnit:
                     size = f"'{ingredient.servingUnit}'"
-                self.db.execute(f"INSERT INTO recipe_ingredients (recipe_id, ingredient, size, qty, isRecipe) VALUES ({self.id}, '{ingredient.name}', '{ingredient.servingUnit}', {ingredient.scale}, 1)")
+                self.db.execute(f"INSERT INTO recipe_ingredients (recipe_id, ingredient, size, qty, isRecipe) VALUES ({self.id}, '{ingredient.name.replace("'", "''")}', '{ingredient.servingUnit}', {ingredient.scale}, 1)")
+            
             else:
                 size = "NULL"
+                prep = "NULL"
                 if ingredient.size:
                     size = f"'{ingredient.size}'"
-                self.db.execute(f"INSERT INTO recipe_ingredients (recipe_id, ingredient, size, qty, isRecipe) VALUES ({self.id}, '{ingredient.name}', '{ingredient.size}', {ingredient.qty}, 0)")
+                if ingredient.prep:
+                    prep = f"'{ingredient.prep}'"
+                self.db.execute(f"INSERT INTO recipe_ingredients (recipe_id, ingredient, size, prep, qty, isRecipe) VALUES ({self.id}, '{ingredient.name.replace("'", "''")}', {size}, {prep}, {ingredient.qty}, 0)")
+        
+        
         for i, step in enumerate(self.steps):
-            self.db.execute(f"INSERT INTO recipe_steps (recipe_id, step, description) VALUES ({self.id}, {i+1}, '{step}')")
+            self.db.execute(f"INSERT INTO recipe_steps (recipe_id, step, description) VALUES ({self.id}, {i+1}, '{step.replace("'", "''")}')")
         for tag in self.tags:
-            self.db.execute(f"INSERT INTO recipe_tags (recipe_id, tag) VALUES ({self.id}, '{tag}')")
+            self.db.execute(f"INSERT INTO recipe_tags (recipe_id, tag) VALUES ({self.id}, '{tag.replace("'", "''")}')")
         if self.yieldConversions:
             for key, value in self.yieldConversions.items():
                 self.db.execute(f"INSERT INTO conversions (name, fromMeasure, factor, isServings) VALUES ('{self.name}', '{key}', {value}, 0)")
@@ -254,7 +238,7 @@ class Recipe:
 
     def __set_from_db__(self):
         '''Get the recipe from the database'''
-        _dict = self.db.query(f"SELECT * FROM recipes WHERE name = '{self.name}'")
+        _dict = self.db.query(f"SELECT * FROM recipes WHERE name = '{self.name.replace("'", "''")}'")
         if len(_dict) == 0:
             raise Exception(f"Recipe {self.name} not found in the database")
 
@@ -272,7 +256,7 @@ class Recipe:
                 recipe.scale = ingredient["qty"]
                 self.ingredients.append(recipe)
             else:
-                self.ingredients.append(Ingredient(ingredient["ingredient"], qty=ingredient["qty"]))
+                self.ingredients.append(Ingredient(ingredient["ingredient"], qty=ingredient["qty"], prep=ingredient["prep"], size=ingredient["size"]))
 
         steps = self.db.query(f"SELECT description FROM recipe_steps WHERE recipe_id = {self.id}")
         if len(steps) == 0:
@@ -283,7 +267,7 @@ class Recipe:
         if len(tags) > 0:
             self.tags = [t["tag"] for t in tags]
 
-        conversions = self.db.query(f"SELECT * FROM conversions WHERE name = '{self.name}'")
+        conversions = self.db.query(f"SELECT * FROM conversions WHERE name = '{self.name.replace("'", "''")}'")
         if len(conversions) > 0:
             for c in conversions:
                 if c['isServings']:

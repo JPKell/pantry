@@ -32,6 +32,12 @@ def initDb(db:Db):
         PRIMARY KEY (name, size)
         ''')
     
+    db.create_table("ingredient_alternatives",'''
+        ingredient TEXT,
+        alternative TEXT,
+        PRIMARY KEY (ingredient, alternative)
+        ''')
+    
     db.create_table("pantry",'''
         ingredient TEXT,
         size TEXT,
@@ -57,6 +63,7 @@ def initDb(db:Db):
         ingredient TEXT,
         size TEXT,
         qty REAL,
+        prep TEXT, 
         isRecipe BOOLEAN,
         PRIMARY KEY (recipe_id, ingredient, size)
     ''')

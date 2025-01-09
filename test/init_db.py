@@ -5,20 +5,17 @@ This is a one-time operation.
 import os
 from modules.database import Db
 from constants import *
+from initDb import initDb
 
-# remove the test database if it exists
+# remove the test database if it exists and initialize it
 if os.path.exists("test/test.db"):
     os.remove("test/test.db")
 test_db = Db("test/test.db")
 
+initDb(test_db)
 ######################
 # Create the measures table
-test_db.create_table("measures",'''
-    name TEXT PRIMARY KEY,
-    abbreviation TEXT,
-    system TEXT,        -- imperial or metric
-    type TEXT           -- volume or mass
-    ''')
+
 
 measures = [
     {"abbreviation": "tsp",   "name": "teaspoon",    "type":"volume","system": "imperial"},
@@ -26,8 +23,8 @@ measures = [
     {"abbreviation": "cup",   "name": "cup",         "type":"volume","system": "imperial"},
     {"abbreviation": "oz",    "name": "ounce",       "type":"mass",  "system": "imperial"},
     {"abbreviation": "lb",    "name": "pound",       "type":"mass",  "system": "imperial"},
-    {"abbreviation": "mg",    "name": "miligram",    "type":"mass",  "system": "metric"},
     {"abbreviation": "g",     "name": "gram",        "type":"mass",  "system": "metric"},
+    {"abbreviation": "mg",    "name": "miligram",    "type":"mass",  "system": "metric"},
     {"abbreviation": "kg",    "name": "kilogram",    "type":"mass",  "system": "metric"},
     {"abbreviation": "ml",    "name": "milliliter",  "type":"volume","system": "metric"},
     {"abbreviation": "l",     "name": "liter",       "type":"volume","system": "metric"},
@@ -37,21 +34,19 @@ measures = [
     {'abbreviation': 'each',  'name': 'each',        'type':'count', 'system': 'metric'},
     {"abbreviation": "slice", "name": "slice",       "type":"count", "system": "metric"},
     {"abbreviation": "loaf",  "name": "loaf",        "type":"count", "system": "metric"},
+    {"abbreviation": "clove", "name": "clove",       "type":"count", "system": "metric"},
+    {"abbreviation": "whole", "name": "whole",       "type":"count", "system": "metric"},
+    {"abbreviation": "bunch", "name": "bunch",       "type":"count", "system": "metric"},
+    {"abbreviation": "stick", "name": "stick",       "type":"count", "system": "metric"},
+    {"abbreviation": "sprig", "name": "sprig",       "type":"count", "system": "metric"},
 ]
 
 for measure in measures:
     test_db.insert("measures", measure)
 
 ######################
-# Create the conversion table and populate with initial data
-
-test_db.create_table("conversions",'''
-    name TEXT,
-    fromMeasure TEXT,
-    isServings BOOLEAN,
-    factor REAL,
-    PRIMARY KEY (name, fromMeasure, isServings)
-    ''')              
+# Conversion table populate with initial data
+             
 
 # Conversions are done based on their default unit of mesurement
 # flour is measured in grams
@@ -77,28 +72,18 @@ basicConversions = [
     {"name": "basic","isServings": False , "fromMeasure": "each", "factor": 1},
     {"name": "basic","isServings": False , "fromMeasure": "slice", "factor": 1},
     {"name": "basic","isServings": False , "fromMeasure": "loaf", "factor": 1},
-]
+    {"name": "basic","isServings": False , "fromMeasure": "clove", "factor": 1},
+    {"name": "basic","isServings": False , "fromMeasure": "whole", "factor": 1},
+    {"name": "basic","isServings": False , "fromMeasure": "bunch", "factor": 1},
+    {"name": "basic","isServings": False , "fromMeasure": "stick", "factor": 1},
+    {"name": "basic","isServings": False , "fromMeasure": "sprig", "factor": 1},
 
+]
 for conversion in basicConversions:
     test_db.insert("conversions", conversion)
 
 ######################
 # Create ingredient tables and populate with initial data
-test_db.create_table("ingredients",'''
-    name TEXT,
-    displayName TEXT,
-    measurement TEXT,
-    size TEXT,
-    rawStorage TEXT,
-    processedStorage TEXT,
-    shelfLife INTEGER,
-    notes TEXT,
-    tags TEXT,
-    category TEXT,
-    subcategory TEXT,
-    kosher TEXT,
-    PRIMARY KEY (name, size)
-    ''')
 
 from modules.ingredients import Ingredient
 data = {
@@ -112,7 +97,7 @@ data = {
         "kosher":"pareve",
         "notes":"keep dry",
         "tags": "baking, thickening, breading, coating, dredging, roux",
-        "conversions": {
+        "knownConversions": {
             "cup": 120,       
         }
     }
@@ -129,7 +114,7 @@ data = {
         "subcategory":"salt", 
         "kosher":"pareve",
         "tags": "seasoning, baking, curing, preserving, pickling, brining",
-        "conversions": {
+        "knownConversions": {
             "cup": 273,       
         }
     }
@@ -146,7 +131,7 @@ data = {
         "subcategory":"water", 
         "kosher":"pareve",
         "tags": "beverage",
-        "conversions": {
+        "knownConversions": {
             "g": 1,       
         }
     }
@@ -164,7 +149,7 @@ data =  {
         "kosher":"pareve",
         "notes":"quick-rise, keep dry and refrigerated",
         "tags": "bread, baking",
-        "conversions": {
+        "knownConversions": {
             "cup": 148.8,       
         }
     }
@@ -180,7 +165,7 @@ data = {
         "subcategory":"egg", 
         "kosher":"pareve",
         "tags": "baking, breakfast, protein",
-        "conversions": {
+        "knownConversions": {
             "g": 1/57,
             "ml": 1/44,      
         }
@@ -188,62 +173,12 @@ data = {
 Ingredient('lg egg', initData=data, db=test_db)
 ######################
 # Create the pantry table
-test_db.create_table("pantry",'''
-    ingredient TEXT,
-    size TEXT,
-    qty REAL,
-    PRIMARY KEY (ingredient, size)
-    ''')
 
-from modules.pantry import Pantry
-pantry = Pantry(db=test_db)
-pantry.addFood(Ingredient("ap flour", qty=12500, db=test_db))
-pantry.addFood(Ingredient("salt", qty=10000, db=test_db))
-pantry.addFood(Ingredient("water", qty=10000, db=test_db))
-pantry.addFood(Ingredient("instant dry yeast", qty=1000, db=test_db))
+
 
 ######################
 # Create the recipe table
 from modules.recipe import Recipe
-
-test_db.create_table("recipes",'''
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    notes TEXT,
-    preheat TEXT,
-    preheatTemp REAL,
-    yields REAL,
-    yieldUnit TEXT,
-    yieldConversion REAL,
-    yieldConversionUnit TEXT,
-    servings REAL,
-    servingUnit TEXT,
-    servingsConversion REAL,
-    servingsConversionUnit TEXT,
-    category TEXT,
-    subcategory TEXT,
-    kosher TEXT                    
-''')
-test_db.create_table("recipe_ingredients",'''
-    recipe_id INTEGER,
-    ingredient TEXT,
-    size TEXT,
-    qty REAL,
-    isRecipe BOOLEAN,
-    PRIMARY KEY (recipe_id, ingredient, size)
-''')
-test_db.create_table("recipe_steps",'''
-    recipe_id INTEGER,
-    step INTEGER,
-    description TEXT,
-    PRIMARY KEY (recipe_id, step)
-''')
-test_db.create_table("recipe_tags",'''
-    recipe_id INTEGER,
-    tag TEXT,
-    PRIMARY KEY (recipe_id, tag)
-''')
-
 
 
 # Insert the basic recipes. 
@@ -282,26 +217,6 @@ Recipe("peasant bread", initData=data, db=test_db)
 
 ######################
 # Create the market table
-test_db.create_table("markets",'''
-    name TEXT,
-    location TEXT,
-    distance REAL,
-    priority INTEGER,
-    notes TEXT,
-    PRIMARY KEY (name)
-    ''')
-
-test_db.create_table("market_ingredients",'''
-    market TEXT,
-    ingredient TEXT,
-    price REAL,
-    priceUnit TEXT,
-    brand TEXT,
-    size REAL,
-    PRIMARY KEY (market, ingredient)
-    ''')
-
-
 
 from modules.market import Market
 
@@ -322,9 +237,3 @@ Market('test shop', initData=data, db=test_db)
 
 ######################
 # Creating the cooking log table
-test_db.create_table("cooking_log",'''
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    recipe_id INTEGER,
-    date TEXT,
-    scale REAL
-    ''')

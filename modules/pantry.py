@@ -14,14 +14,13 @@ class Pantry:
         _pantry = self.db.query("SELECT * FROM pantry")
         for item in _pantry: 
             self.stored.append(Ingredient(item['ingredient'], qty=item['qty'], size=item['size']))
-        self.stored = self.db.query("SELECT * FROM pantry")
 
     def addFood(self, ingredient: Ingredient):
         # If a unit is added, check against the ingredient's measurement and preform conversion if necessary
         
         if ingredient in self.stored:
             storedIngredient = self.stored[self.stored.index(ingredient)]   
-            storedIngredient.qty += ingredient.qty
+            storedIngredient.qty += ingredient._qty
             self.db.execute(f"UPDATE pantry SET qty = {storedIngredient.qty} WHERE ingredient = '{ingredient.name}'")
         else:
             self.stored.append(ingredient)
@@ -33,7 +32,7 @@ class Pantry:
             raise ValueError(f"{ingredient} not found in stored ingredients")
             
         storedIngredient = self.stored[self.stored.index(ingredient)]
-        storedIngredient.qty -= ingredient.qty
+        storedIngredient.qty -= ingredient._qty
 
         
         if storedIngredient.qty <= 0:
@@ -42,11 +41,6 @@ class Pantry:
         else:
             self.db.execute(f"UPDATE pantry SET qty = {storedIngredient.qty} WHERE ingredient = '{ingredient.name}'")
         
-    def console(self):
-        print("Pantry:")
-        for ingredient in self.stored:
-            print(f"\t{ingredient.qty} {ingredient.measurement} {ingredient.name}")
-
     ## Private methods
     def __add_to_db__(self, ingredient: Ingredient) -> None:
-        self.db.insert("pantry", {"ingredient":ingredient.name, "size":ingredient.size, "qty":ingredient.qty})
+        self.db.insert("pantry", {"ingredient":ingredient.name.replace("'", "''"), "size":ingredient.size, "qty":ingredient._qty})

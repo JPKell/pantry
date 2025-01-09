@@ -11,7 +11,7 @@ greens = {
         "subcategory":"herb",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 48,
         }
     },
@@ -25,7 +25,7 @@ greens = {
         "subcategory":"herb",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 16,
             "bunch": 75,
         }
@@ -40,7 +40,7 @@ greens = {
         "subcategory":"herb",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 65,
             "bunch": 65,
         }
@@ -55,7 +55,7 @@ greens = {
         "subcategory":"herb",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 60,
             "bunch": 55,
             "sprig": 2,
@@ -71,7 +71,7 @@ greens = {
         "subcategory":"herb",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 52,
             "bunch": 28,
         }
@@ -86,10 +86,24 @@ greens = {
         "subcategory":"herb",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
-        "conversions": {
+        "knownConversions": {
             "cup": 38,
             "sprig": 2,
         }
     },
-
-}
+    "mint": {
+        "displayName":"mint",
+        "measurement":"g",
+        "rawStorage":"refrigerator",
+        "processedStorage":"refrigerator",
+        "shelfLife":7,
+        "category":"greens",
+        "subcategory":"herb",
+        "kosher":"pareve",
+        "tags":"garnish, seasoning, salad, soup",
+        "knownConversions": {
+            "cup": 45,
+            "bunch": 35,
+        }
+    }
+}   
