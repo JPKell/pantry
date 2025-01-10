@@ -1,0 +1,22 @@
+.form-check-input:checked{
+  background-color: rgb(121, 121, 121) !important;
+  border: 0;
+  box-shadow: 0 0 0 0 rgb(255, 0, 0) !important;
+}
+.form-check-input:focus, .label::after, label.form-check-label:focus, .form-check-input::after, .form-check-input:not(:disabled):not(.disabled):active:focus {
+  outline: 0;
+  border: 0;
+  /* box-shadow: 0 0 0 0.1rem rgb(255, 0, 0) !important; */
+}
+
+.overflow-hidden > td {
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.overflow-shown > td {
+  max-width: 100;
+  word-break: break-all;
+}

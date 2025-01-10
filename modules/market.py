@@ -67,10 +67,10 @@ class Market:
         if not _dict:
             return None
         
-        factor = self.db.queryOne(f"SELECT * FROM conversions WHERE name = 'basic' AND fromMeasure = '{ _dict['priceUnit'] }'")
+        factor = self.db.query(f"SELECT * FROM conversions WHERE name = 'basic' AND fromMeasure = '{ _dict['priceUnit'] }'")
         if not factor:
             raise ValueError(f"Conversion not found for {_dict['priceUnit']}")
-        factor = factor['factor']
+        factor = factor[0]['factor']
         _dict['total'] = ingredient.convert(toUnit=_dict['priceUnit']) * (_dict['price'] / _dict['size'] )# / factor
 
         return _dict

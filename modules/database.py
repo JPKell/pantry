@@ -132,6 +132,7 @@ class Db:
         cur = self.conn.cursor()
         cur.execute(sql)
         data = [x[0] for x in cur.fetchall()]
+        data.remove('sqlite_sequence')
         cur.close()
         return data
     

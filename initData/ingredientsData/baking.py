@@ -16,12 +16,12 @@ baking = {
             "cup": 120,       
         }
     },
-        "instant dry yeast": {
+    "instant dry yeast": {
         "displayName":"instant dry yeast",
         "measurement":"g", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
-        "shelfLife":365, 
+        "shelfLife":133, 
         "category":"baking", 
         "subcategory":"yeast", 
         "kosher":"pareve",
@@ -29,14 +29,60 @@ baking = {
         "tags": "bread, baking",
         "knownConversions": {
             "cup": 148.8,       
-        }
+        },
+        "alternatives": ["active dry yeast", "quick-rise yeast", "fresh yeast"]
+    },
+    "active dry yeast": {
+        "displayName":"active dry yeast",
+        "measurement":"g", 
+        "rawStorage":"refrigerator", 
+        "processedStorage":"refrigerator", 
+        "shelfLife":133, 
+        "category":"baking", 
+        "subcategory":"yeast", 
+        "kosher":"pareve",
+        "notes":"keep dry and refrigerated",
+        "tags": "bread, baking",
+        "knownConversions": {
+            "cup": 148.8,       
+        },
+        "alternatives": ["instant dry yeast", "quick-rise yeast", "fresh yeast"]
+    },
+    "quick-rise yeast": {
+        "displayName":"quick-rise yeast",
+        "measurement":"g", 
+        "rawStorage":"refrigerator", 
+        "processedStorage":"refrigerator", 
+        "shelfLife":133, 
+        "category":"baking", 
+        "subcategory":"yeast", 
+        "kosher":"pareve",
+        "notes":"keep dry and refrigerated",
+        "tags": "bread, baking",
+        "knownConversions": {
+            "cup": 148.8,       
+        },
+        "alternatives": ["instant dry yeast", "active dry yeast", "fresh yeast"]
     }, 
-        "sugar": {
+    "fresh yeast": {
+        "displayName":"fresh yeast",
+        "measurement":"g",
+        "rawStorage":"refrigerator",
+        "processedStorage":"refrigerator",
+        "shelfLife":14,
+        "category":"baking",
+        "subcategory":"yeast",
+        "kosher":"pareve",
+        "notes":"keep dry and refrigerated, use twice as much by weight as dry yeast",
+        "tags": "bread, baking",
+        "alternatives": ["instant dry yeast", "active dry yeast", "quick-rise yeast"]
+    },
+    "sugar": {
         "displayName":"sugar",
         "measurement":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
-        "shelfLife":365, 
+        "shelfLife":999, 
         "category":"sweetener", 
         "subcategory":"sugar", 
         "kosher":"pareve",
@@ -46,18 +92,18 @@ baking = {
             "cup": 200,       
         }
     },
-        "honey": {
+    "honey": {
         "displayName":"honey",
         "measurement":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
-        "shelfLife":365, 
+        "shelfLife":999, 
         "category":"sweetener", 
         "subcategory":"honey", 
         "kosher":"pareve",
         "tags": "sweet, baking, dessert",
         "knownConversions": {
-            "g": 1 / (340/CUP), # 1 cup = 340g  
+            "g": 340/CUP,
         }
     },
     

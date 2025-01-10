@@ -29,7 +29,11 @@ class Recipe:
         self.ingredients = []
         self.steps       = []
         self.notes       = ""
-        self.preheat     = {}
+        self.preheat     = ""
+        self.preheatTemp = 0
+        self.preheatUnit = ""
+        self.prepareAhead = ""
+        self.kosher      = ""
         self.yields      = 0  # Yield is the total recipe yield e.g. 1 loaf, 1 cake, 1 batch
         self.yieldUnit   = ""
         self.yieldConversions = {} # Conversion factors for the yield units
@@ -60,9 +64,11 @@ class Recipe:
         self.notes       = initData.get("notes", "")
         self.preheat     = initData.get("preheat", 0)
         self.preheatTemp = initData.get("preheatTemp", 0)
+        self.preheatUnit = initData.get("preheatUnit", None)
+        self.prepareAhead = initData.get("prepareAhead", "")
         self.kosher      = initData.get("kosher", "")
         self.yields      = initData.get("yields", 0)
-        self.yieldUnit   = initData.get("yieldUnit", "")
+        self.yieldUnit   = initData.get("yieldUnit", None)
         self.yieldConversions = initData.get("yieldConversions", {})
         self.servings    = initData.get("servings", 0)
         self.servingUnit = initData.get("servingUnit", "")

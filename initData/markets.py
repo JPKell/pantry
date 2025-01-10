@@ -7,6 +7,7 @@ markets = {
             "water": {'price': 0, 'priceUnit': 'ml', 'brand': 'tap', 'size': 1 },
             "stock scraps": {'price': 0, 'priceUnit': 'g', 'brand': 'home', 'size': 1 },
             "basil": {'price': 0.50, 'priceUnit': 'kg', 'brand': 'home', 'size': 1 },
+            "fresh yeast": {'price': 4.99, 'priceUnit': 'lb', 'brand': 'home', 'size': 1 },
         }
     },
     "save-on": {
@@ -309,6 +310,8 @@ markets = {
             "dried bean soup mix": { 'price': 8.29, 'priceUnit': 'g', 'brand': 'Bobs Red Mill', 'size': 822 },
             "ground turmeric" : {'price': 3.99, 'priceUnit': 'g', 'brand': 'Compliments', 'size': 98 },
             "chili flakes" : {'price': 3.79, 'priceUnit': 'g', 'brand': 'Compliments', 'size': 62 },
+            "quick-rise yeast" : {'price': 12.79, 'priceUnit': 'g', 'brand': 'Compliments', 'size': 227 },
+            "active dry yeast" : {'price': 12.79, 'priceUnit': 'g', 'brand': 'Compliments', 'size': 227 },
 
         }
     },

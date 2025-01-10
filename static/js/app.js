@@ -1,93 +1,123 @@
-function getFormData(form) {
-  let formData = {};
-  for ( var i = 0; i < form.elements.length; i++ ) {
-    var e = form.elements[i];
-    console.log(e)
-    if (e.type == 'checkbox') {
-      formData[e.name] = {type: e.type, value: e.checked};
-    } 
-    else {
-      formData[e.name] = {type: e.type, value: e.value};
+// define global variables
+var editMode     = true; // Change this base after implementing the checkbox
+var editingCell  = null;
+var editingRow   = null;
+var editRowIndex = null;
+var editColIndex = null;
+var headerId     = null;   
+var inputField   = null;
+var oldValue     = null;
+
+function toggleEditMode(checkbox) { editMode = !(checkbox == undefined); };
+
+// create a listener for all mouse clicks and if there is an element being edited then save the changes
+document.addEventListener('click', function(event) {
+    console.log("Click EVENT ATART")
+    if (editMode) {
+        console.log("Edit mode active")
+
+        // check if the event target is not the editing cell
+        if (editingCell != null && !editingCell.contains(event.target)) {
+            // check that event target does not contain the editingCell
+            console.log("Save cell")
+
+            saveCellChanges();
+            editingCell = null;
+            editingRow  = null;
+        } else if (editingCell == null) {
+            console.log("Try to edit")
+
+            var srcElement = event.target || event.srcElement;
+            if (srcElement.tagName == 'TD') {
+                console.log("Edit cell")
+                
+                editCell(event);
+            }
+        }   else {
+            console.log("Do nothing", editingCell)
+        }
     }
-  }
-  return formData;
+});
+
+function editCell(event) {
+    console.log("Run editCell")
+    
+    if (editMode) {
+      // Gather information about the cell being edited
+      editingCell = event.target || event.srcElement;
+      editColIndex = editingCell.cellIndex;
+      editRowIndex = editingCell.parentElement.rowIndex;
+
+      editingRow = editingCell.parentElement;
+      // fint the column index of the cell being edited then get the id of the element at that index in the header row
+      var headerRow = editingRow.parentElement.parentElement.querySelector('thead tr');
+      var headerCell = headerRow.children[editingCell.cellIndex];
+      headerId = headerCell.id;
+
+      // create the input field for the editingCell
+      inputField = document.createElement('input');
+      inputField.type = 'text';
+      oldValue = editingCell.innerText;
+      inputField.value = oldValue;
+      inputField.size = inputField.value.length;
+      inputField.onblur = function() {
+        editingCell.innerText = inputField.value;
+      };
+
+      // get the parent row and for the editingCell  
+      editingRow.classList.remove('overflow-hidden');
+
+      editingCell.innerText = '';
+      editingCell.appendChild(inputField);
+    } 
 }
 
-function addRecord(formId, tableName) {
-  var form = document.forms[formId];
-  fetch(`/api/addTableRecord/${tableName}`, {
-    method: 'POST',
-    body: JSON.stringify(getFormData(form)),
-    headers: {"Content-type": "application/json; charset=UTF-8"}
-  }).then((response) => response.json())
-    .then((json) => {
-      handleFormApiResponse(json, form);
-    })
-} 
+function saveCellChanges() {
+    console.log("Run saveCellChanges")
+    // get the current value of the input field
+    // find all elements in the header row that have primaryKey in their class list
+    var headerRow = editingRow.parentElement.parentElement.querySelector('thead tr');
+    // create object to store the primary key values
+    var primaryKeys = {};
+    for (var i = 0; i < headerRow.children.length; i++) {
+        if (headerRow.children[i].classList.contains('primaryKey')) {
+            primaryKeys[headerRow.children[i].id] = editingRow.children[i].innerText;
+        }
+    }
 
-function addColumn(formId, tableName) {
-    var form = document.forms[formId];
-    fetch(`/api/addTableColumn/${tableName}`, {
-      method: 'POST',
-      body: JSON.stringify(getFormData(form)),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    }).then((response) => response.json())
-      .then((json) => {
-        handleFormApiResponse(json, form);
-      })
-}
+    // get the value of the input field in the editing cell or iff the editing cell is an input get it from there
+    // if (editingCell.querySelector('input') != null ) {
+    //     input = editingCell.querySelector('input');
+    // } else if ( editingCell.type == 'input' ) {
+    //     input = editingCell;
+    // } 
+  // Do nothing if no changes were made
 
-function editRecord(formId, tableName) {
-  var form = document.forms[formId];
-  fetch(`/api/editRecord/${tableName}`, {
-    method: 'POST',
-    body: JSON.stringify(getFormData(form)),
-    headers: {"Content-type": "application/json; charset=UTF-8"}
-  }).then((response) => response.json())
-    .then((json) => {
-      handleFormApiResponse(json, form);
-    })
-}
+    if (inputField != null && inputField.value == oldValue) {
+        editingCell.querySelector('input');
+        editingCell.innerText = inputField.value;
+        editingRow.classList.add('overflow-hidden');    
+    }
 
-function handleFormApiResponse(data, form) {
-  let s = data.status;
-  if (s == 'OK') {
-    form.reset();
-    closeModal();
-    // Todo: replace this with code that just updates the table
-    location.replace(location.href);
-  } else if (s == 'error') {
-    alert(data.msg);
-  }
-}
-
-function loadEditRecordModal(tableName, id) {
-  let form = 'editRecordForm';
-  fetch(`/api/getRecord/${tableName}/${id}`)
-    .then((response) => response.json())
-    .then((json) => {
-      populateModalFields(form, json);
-    })
-}
-
-function populateModalFields(formId, data) {
-  let f = document.forms[formId];
-  for ( var i = 0; i < f.elements.length; i++ ) {
-    f.elements[i].setAttribute('value', data[f.elements[i].id]) ;
-  }
-}
-
-function closeModal() {
-  let m = document.getElementsByClassName('modal');
-  for (var i = 0; i < m.length; i++) {
-    var modal = bootstrap.Modal.getInstance(m.item(i))
-    if (modal) modal.hide();
-  }
-}
-
-function toDateInputValue(dateObject){
-  const local = new Date(dateObject);
-  local.setMinutes(dateObject.getMinutes() - dateObject.getTimezoneOffset());
-  console.log( local.toJSON())
-  return local.toJSON().slice(0,16);
-};
+    // save the changes to the database
+    // call the api at /api/editDb with the primary key values and the new value of the cell
+    console.log("Fetching")
+    fetch('/api/editDb', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            primaryKeys: primaryKeys,
+            column: headerId,
+            value: inputField.value
+        })
+    }).then(response => {
+        if (!response.ok) {
+            console.log("Error", editingCell)
+            if (editingCell != null && editingCell.type == 'input') {
+            editingCell.value = oldValue;
+        }   
+    }
+})
+}   
