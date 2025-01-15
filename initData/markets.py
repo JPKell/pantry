@@ -312,6 +312,7 @@ markets = {
             "chili flakes" : {'price': 3.79, 'priceUnit': 'g', 'brand': 'Compliments', 'size': 62 },
             "quick-rise yeast" : {'price': 12.79, 'priceUnit': 'g', 'brand': 'Compliments', 'size': 227 },
             "active dry yeast" : {'price': 12.79, 'priceUnit': 'g', 'brand': 'Compliments', 'size': 227 },
+            "better than bouillon" : {'price': 9.29, 'priceUnit': 'g', 'brand': 'Better Than Bouillon', 'size': 227 },
 
         }
     },

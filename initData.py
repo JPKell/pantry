@@ -8,6 +8,7 @@ from constants import *
 ######################
 # Initialize the database
 from initDb import initDb
+print("--Creating database--")
 initDb(db)
 
 
@@ -96,10 +97,10 @@ pantry = Pantry()
 
 # Add some initial data to the pantry
 print("--Inserting pantry data--")
+pantry.addFood(Ingredient('avocado', qty=2))
 pantry.addFood(Ingredient("ap flour", qty=12.5, qtyUnit="kg"))
 pantry.addFood(Ingredient('apple cider vinegar', qty=750, qtyUnit='ml'))
 pantry.addFood(Ingredient('arborio rice', qty=400, qtyUnit='g'))
-pantry.addFood(Ingredient('avocado', qty=2))
 pantry.addFood(Ingredient('baking soda', qty=1, qtyUnit='tbsp'))
 pantry.addFood(Ingredient('baking powder', qty=1, qtyUnit='tbsp'))
 pantry.addFood(Ingredient('balsamic vinegar', qty=300, qtyUnit='ml'))
@@ -218,6 +219,11 @@ from initData.compoundRecipes import compoundRecipes
 for name, data in compoundRecipes.items():
     Recipe(name, initData=data)
 
+from initData.doubleCompoundRecipes import doubleCompoundRecipes
+
+for name, data in doubleCompoundRecipes.items():
+    Recipe(name, initData=data)
+    
 ######################
 # Insert the markets
 from modules.market import Market

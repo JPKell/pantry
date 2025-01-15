@@ -3,7 +3,7 @@ from constants import *
 cannedGoods = {
       "mango puree" : {
         "displayName":"mango puree",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"refrigerator", 
         "shelfLife":365, 
@@ -15,14 +15,14 @@ cannedGoods = {
             "cup": 200,      
         }
     },
-        "canned chickpeas": {
+    "canned chickpeas": {
         "displayName":"canned chickpeas",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"chickpea",
+        "subcategory":"canned",
         "kosher":"pareve",
         "tags": "main, side, snack",
         "knownConversions": {
@@ -32,12 +32,12 @@ cannedGoods = {
     
     "canned peas": {
         "displayName":"canned peas",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
-        "category":"vegetable",
-        "subcategory":"pea",
+        "category":"fruits and vegetables",
+        "subcategory":"canned",
         "kosher":"pareve",
         "tags": "main, side, snack",
         "knownConversions": {
@@ -46,12 +46,12 @@ cannedGoods = {
     },
     "canned pineapple": {
         "displayName":"canned pinapple",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"fruit",
-        "subcategory":"pineapple",
+        "subcategory":"tropical",
         "kosher":"pareve",
         "tags": "main, side, snack",
         "knownConversions": {
@@ -61,7 +61,7 @@ cannedGoods = {
     
     "canned crushed tomatoes": {
         "displayName":"canned crushed tomatoes",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
@@ -75,7 +75,7 @@ cannedGoods = {
     },
     "canned plum tomato": {
         "displayName":"canned plum tomato",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
@@ -89,11 +89,11 @@ cannedGoods = {
     },
     "coconut milk": {
         "displayName":"coconut milk",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
-        "category":"nut",
+        "category":"nuts and seeds",
         "subcategory":"coconut",
         "kosher":"pareve",
         "tags": "main, side, snack",
@@ -103,7 +103,7 @@ cannedGoods = {
     },
     "sun-dried tomato": {
         "displayName":"sun-dried tomato",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,

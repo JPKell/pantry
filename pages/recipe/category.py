@@ -1,10 +1,11 @@
 from modules.recipe import Recipe
+from modules.formatting import number, currency
 
 from app import db, chef
 
-def recipe_table() -> str: 
+def category_table(category:str) -> str: 
     body = f'''
-    <h1>Recipes</h1>
+    <h1>{category.capitalize()}</h1>
     <table class="table table-striped table-hover table-sm">
         <thead>
             <tr>
@@ -19,18 +20,18 @@ def recipe_table() -> str:
         </thead>
         <tbody>
     '''
-    recipes = db.query("SELECT * FROM recipes")
+    recipes = db.query(f"SELECT * FROM recipes WHERE category = '{category}'")
     for r in recipes:
         recipe = Recipe(r['name'])
         body += f'''
         <tr>
-            <td><a href="/recipes/{recipe.name.replace(" ", '%20')}"> {recipe.name}</a></td>
+            <td><a href="/recipes/{recipe.name.replace(" ", '%20')}"> {recipe.name.capitalize()}</a></td>
             <td>${chef.totalRecipePrice(recipe):.2f}</td>
-            <td>{recipe.yields}</td>
+            <td>{number(recipe.yields)}</td>
             <td>{recipe.yieldUnit}</td>
-            <td>{round(recipe.servings, 1)}</td>
+            <td>{number(recipe.servings)}</td>
             <td>{recipe.servingUnit}</td>
-            <td>${round(chef.totalRecipePrice(recipe) / recipe.servings, 3)}</td>
+            <td>{currency(chef.totalRecipePrice(recipe) / recipe.servings)}</td>
         </tr>
         '''
     body += "</tbody></table>"

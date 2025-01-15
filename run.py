@@ -50,8 +50,9 @@ initData = {
 # for x, v in chef.detailedRecipePrice(bb).items():
 #     print(x,v )
 
-from test.init_db import test_db
-r = Ingredient("ap flour", db=test_db)
+# from test.init_db import test_db
+# r = Ingredient("ap flour", db=test_db)
 
-for k,v in r.__dict__.items():
-    print(k,v)
+# for k,v in r.__dict__.items():
+#     print(k,v)
+

@@ -3,11 +3,11 @@ from constants import *
 baking = {
         "ap flour": {
         "displayName":"all-purpose flour",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature",
         "shelfLife":365, 
-        "category":"grain", 
+        "category":"baking", 
         "subcategory":"flour", 
         "kosher":"pareve",
         "notes":"keep dry",
@@ -18,7 +18,7 @@ baking = {
     },
     "instant dry yeast": {
         "displayName":"instant dry yeast",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
         "shelfLife":133, 
@@ -34,7 +34,7 @@ baking = {
     },
     "active dry yeast": {
         "displayName":"active dry yeast",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
         "shelfLife":133, 
@@ -50,7 +50,7 @@ baking = {
     },
     "quick-rise yeast": {
         "displayName":"quick-rise yeast",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
         "shelfLife":133, 
@@ -66,7 +66,7 @@ baking = {
     }, 
     "fresh yeast": {
         "displayName":"fresh yeast",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"refrigerator",
         "processedStorage":"refrigerator",
         "shelfLife":14,
@@ -79,12 +79,12 @@ baking = {
     },
     "sugar": {
         "displayName":"sugar",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":999, 
-        "category":"sweetener", 
-        "subcategory":"sugar", 
+        "category":"baking", 
+        "subcategory":"sweetener", 
         "kosher":"pareve",
         "notes":"granulated sugar, keep dry",
         "tags": "baking, sweet, dessert",
@@ -94,12 +94,12 @@ baking = {
     },
     "honey": {
         "displayName":"honey",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":999, 
-        "category":"sweetener", 
-        "subcategory":"honey", 
+        "category":"baking", 
+        "subcategory":"sweetener", 
         "kosher":"pareve",
         "tags": "sweet, baking, dessert",
         "knownConversions": {
@@ -109,12 +109,12 @@ baking = {
     
     "cocoa powder" : {
         "displayName":"cocoa powder",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
         "category":"baking", 
-        "subcategory":"cocoa", 
+        "subcategory":"misc", 
         "kosher":"pareve",
         "tags": "baking, dessert, sweet",
         "knownConversions": {
@@ -123,11 +123,11 @@ baking = {
     },
     "rye flour" : {
         "displayName":"rye flour",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"grain", 
+        "category":"baking", 
         "subcategory":"flour", 
         "kosher":"pareve",
         "tags": "baking, bread, dense",
@@ -137,11 +137,11 @@ baking = {
     },
     "vital wheat gluten" : {
         "displayName":"vital wheat gluten",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"grain", 
+        "category":"baking", 
         "subcategory":"gluten", 
         "kosher":"pareve",
         "tags": "baking, bread, dense",
@@ -152,12 +152,12 @@ baking = {
     
     "baking soda" : {
         "displayName":"baking soda",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"spice", 
-        "subcategory":"soda", 
+        "category":"baking", 
+        "subcategory":"misc", 
         "kosher":"pareve",
         "tags": "baking, cleaning",
         "knownConversions": {
@@ -166,12 +166,12 @@ baking = {
     },
     "baking powder" : {
         "displayName":"baking powder",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"spice", 
-        "subcategory":"powder", 
+        "category":"baking", 
+        "subcategory":"misc", 
         "kosher":"pareve",
         "tags": "baking, leavening",
         "knownConversions": {
@@ -180,12 +180,12 @@ baking = {
     },
     "vanilla extract" : {
         "displayName":"vanilla extract",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"liquid", 
-        "subcategory":"extract", 
+        "category":"baking", 
+        "subcategory":"liquid", 
         "kosher":"pareve",
         "tags": "baking, sweet, dessert",
         "knownConversions": {
@@ -194,12 +194,12 @@ baking = {
     },
     "golden corn syrup" : {
         "displayName":"corn syrup",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"sweetener", 
-        "subcategory":"syrup", 
+        "category":"baking", 
+        "subcategory":"sweetener", 
         "kosher":"pareve",
         "tags": "sweet, baking, dessert",
         "knownConversions": {
@@ -208,21 +208,21 @@ baking = {
     },
     "brown sugar" : {
         "displayName":"brown sugar",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"sweetener", 
-        "subcategory":"sugar", 
+        "category":"baking", 
+        "subcategory":"sweetener", 
         "kosher":"pareve",
         "tags": "baking, sweet, dessert",
         "knownConversions": {
             "cup": 200,      
         }
     },
-        "cornmeal": {
+    "cornmeal": {
         "displayName":"cornmeal",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
@@ -234,14 +234,13 @@ baking = {
             "cup": 164,
         }
     },
-    
     "chickpea flour": {
         "displayName":"chickpea flour",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"grain",
+        "category":"legumes",
         "subcategory":"flour",
         "kosher":"pareve",
         "tags": "main, side, snack",
@@ -249,32 +248,19 @@ baking = {
             "cup": 92,
         }
     },
-        "molasses": {
+    "molasses": {
         "displayName":"molasses",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"sweetener",
-        "subcategory":"syrup",
+        "category":"baking",
+        "subcategory":"sweetener",
         "kosher":"pareve",
         "tags": "sweet, baking, dessert",
         "knownConversions": {
             "g": 328/CUP,
         }
     },
-        "salted butter" : {
-        "displayName":"salted butter",
-        "measurement":"g",
-        "rawStorage":"refrigerator",
-        "processedStorage":"refrigerator",
-        "shelfLife":365,
-        "category":"dairy",
-        "subcategory":"butter",
-        "kosher":"pareve",
-        "tags": "spread, cooking, baking",
-        "knownConversions": {
-            "cup": 227,
-        }
-    },
+
 }

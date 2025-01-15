@@ -3,11 +3,11 @@ from constants import *
 wetGoods = {
     "water": {
         "displayName":"water",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"liquid", 
+        "category":"home", 
         "subcategory":"water", 
         "kosher":"pareve",
         "tags": "beverage",
@@ -17,11 +17,11 @@ wetGoods = {
     },
         "olive oil": {
         "displayName":"olive oil",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"fat", 
+        "category":"liquid", 
         "subcategory":"oil", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
@@ -31,7 +31,7 @@ wetGoods = {
     },
         "instant coffee": {
         "displayName":"instant coffee",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
@@ -45,7 +45,7 @@ wetGoods = {
     },
         "whole coffee bean": {
         "displayName":"whole coffee bean",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
@@ -59,7 +59,7 @@ wetGoods = {
     },
         "balsamic vinegar": {
         "displayName":"balsamic vinegar",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
@@ -73,7 +73,7 @@ wetGoods = {
     },
         "apple cider vinegar": {
         "displayName":"apple cider vinegar",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
@@ -87,11 +87,11 @@ wetGoods = {
     },
     "sesame oil" : {
         "displayName":"sesame oil",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"fat", 
+        "category":"liquid", 
         "subcategory":"oil", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
@@ -101,11 +101,11 @@ wetGoods = {
     },
     "grapeseed oil" : {
         "displayName":"grape seed oil",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"fat", 
+        "category":"liquid", 
         "subcategory":"oil", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
@@ -116,7 +116,7 @@ wetGoods = {
     
     "fish sauce": {
         "displayName":"fish sauce",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
@@ -130,7 +130,7 @@ wetGoods = {
     },
         "tabasco": {
         "displayName":"tabasco",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
@@ -144,12 +144,12 @@ wetGoods = {
     },
         "mayonnaise": {
         "displayName":"mayonnaise",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
-        "category":"fat",
-        "subcategory":"spread",
+        "category":"liquid",
+        "subcategory":"condiment",
         "kosher":"pareve",
         "tags": "spread, sandwich, dip",
         "knownConversions": {
@@ -158,12 +158,12 @@ wetGoods = {
     },
             "yellow mustard" : {
         "displayName":"yellow mustard",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"refrigerator",
         "processedStorage":"refrigerator",
         "shelfLife":365,
-        "category":"spice",
-        "subcategory":"mustard",
+        "category":"liquid",
+        "subcategory":"condiment",
         "kosher":"pareve",
         "tags": "spread, sandwich, dip",
         "knownConversions": {
@@ -172,7 +172,7 @@ wetGoods = {
     },
         "white wine vinegar" : {
         "displayName":"white wine vinegar",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
@@ -186,7 +186,7 @@ wetGoods = {
     },
         "red wine vinegar" : {
         "displayName":"red wine vinegar",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
@@ -200,11 +200,11 @@ wetGoods = {
     },
     "vegetable oil" : {
         "displayName":"vegetable oil",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"fat",
+        "category":"liquid",
         "subcategory":"oil",
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
@@ -214,7 +214,7 @@ wetGoods = {
     },
     "soy sauce" : {
         "displayName":"soy sauce",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
@@ -228,7 +228,7 @@ wetGoods = {
     },
     "light soy sauce" : {
         "displayName":"light soy sauce",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
@@ -242,12 +242,12 @@ wetGoods = {
     },
     "apple cider": {
         "displayName":"apple cider",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
         "category":"liquid",
-        "subcategory":"cider",
+        "subcategory":"juice",
         "kosher":"pareve",
         "tags": "beverage",
         "knownConversions": {
@@ -256,12 +256,12 @@ wetGoods = {
     },
     "maple syrup": {
         "displayName":"maple syrup",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"liquid",
-        "subcategory":"syrup",
+        "category":"baking",
+        "subcategory":"sweetener",
         "kosher":"pareve",
         "tags": "sweetener",
         "knownConversions": {
@@ -270,12 +270,12 @@ wetGoods = {
     },
     "dijon mustard": {
         "displayName":"dijon mustard",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"spice",
-        "subcategory":"mustard",
+        "category":"liquid",
+        "subcategory":"condiment",
         "kosher":"pareve",
         "tags": "spread, sandwich, dip",
         "knownConversions": {
@@ -284,12 +284,12 @@ wetGoods = {
     },
     "tahini": {
         "displayName":"tahini",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
-        "category":"fat",
-        "subcategory":"spread",
+        "category":"nuts and seeds",
+        "subcategory":"sesame",
         "kosher":"pareve",
         "tags": "spread, sandwich, dip",
         "knownConversions": {
@@ -298,7 +298,7 @@ wetGoods = {
     },
     "rice vinegar": {
         "displayName":"rice vinegar",
-        "measurement":"ml",
+        "unit":"ml",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
@@ -310,5 +310,19 @@ wetGoods = {
             "g": 1/240,
         }
     },
+    "better than bouillon": {
     
+        "displayName":"better than bouillon",
+        "unit":"g",
+        "rawStorage":"room temperature",
+        "processedStorage":"refrigerator",
+        "shelfLife":365,
+        "category":"liquid",
+        "subcategory":"stock",
+        "kosher":"pareve",
+        "tags": "main, side, snack",
+        "knownConversions": {
+            "tsp": 6,
+        }
+    },  
 }

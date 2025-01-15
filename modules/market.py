@@ -21,6 +21,7 @@ class Market:
         self.notes       = ""
         self.priority    = 0    # 0 is the lowest priority
         self.ingredients = []
+        self.search      = "" # The URL search string for the market
         self.__set_attributes__(initData)
 
     ## Overload operators
@@ -48,6 +49,7 @@ class Market:
         self.notes       = initData.get("notes", "")
         self.priority    = initData.get("priority", 0)
         self.ingredients = initData.get("ingredients", [])
+        self.search      = initData.get("search", "")
         self.__add_to_db__()
 
     def __get_from_db__(self):
@@ -91,6 +93,7 @@ class Market:
         for name, data in ingredients.items():
             data['ingredient'] = name.replace("'", "''")
             data['market'] = self.name.replace("'", "''")
+            
 
             self.db.insert("market_ingredients", data)
 

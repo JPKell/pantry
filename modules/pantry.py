@@ -3,17 +3,22 @@ from .database import db
 
 
 class Pantry:
-    stored = []
+    _stored = []
 
     def __init__(self, db=db):
         self.db = db
-        self.__load_from_db__()
 
+    @property
+    def stored(self):
+        if len(self._stored) == 0:
+            self.__load_from_db__()
+        return self._stored
+    
     ## init methods
     def __load_from_db__(self):
         _pantry = self.db.query("SELECT * FROM pantry")
         for item in _pantry: 
-            self.stored.append(Ingredient(item['ingredient'], qty=item['qty'], size=item['size']))
+            self._stored.append(Ingredient(item['ingredient'], qty=item['qty']))
 
     def addFood(self, ingredient: Ingredient):
         # If a unit is added, check against the ingredient's measurement and preform conversion if necessary
@@ -43,4 +48,4 @@ class Pantry:
         
     ## Private methods
     def __add_to_db__(self, ingredient: Ingredient) -> None:
-        self.db.insert("pantry", {"ingredient":ingredient.name.replace("'", "''"), "size":ingredient.size, "qty":ingredient._qty})
+        self.db.insert("pantry", {"ingredient":ingredient.name.replace("'", "''"), "qty":ingredient._qty})

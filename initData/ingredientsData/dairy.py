@@ -3,7 +3,7 @@ from constants import *
 dairy = {
         "lg egg": {
         "displayName":"large egg",
-        "measurement":"each", 
+        "unit":"each", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
         "shelfLife":30, 
@@ -16,24 +16,9 @@ dairy = {
             "ml": 1/44,      
         }
     },
-    "lg egg yolk": {
-        "displayName":"large egg yolk",
-        "measurement":"each", 
-        "rawStorage":"refrigerator", 
-        "processedStorage":"refrigerator", 
-        "shelfLife":30, 
-        "category":"dairy", 
-        "subcategory":"egg", 
-        "kosher":"pareve",
-        "tags": "baking, breakfast, protein",
-        "knownConversions": {
-            "g": 1/18,
-            "ml": 1/15,      
-        }
-    },
     "cheddar cheese": {
         "displayName":"cheddar cheese",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
         "shelfLife":7, 
@@ -47,7 +32,7 @@ dairy = {
     },  
     "plain yogurt": {
         "displayName":"plain yogurt",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
         "shelfLife":7, 
@@ -61,7 +46,7 @@ dairy = {
     },
     "butter": {
         "displayName":"butter",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
         "shelfLife":90, 
@@ -73,7 +58,20 @@ dairy = {
             "cup": 227,
         }
     },
-
+    "salted butter" : {
+        "displayName":"salted butter",
+        "unit":"g",
+        "rawStorage":"refrigerator",
+        "processedStorage":"refrigerator",
+        "shelfLife":365,
+        "category":"dairy",
+        "subcategory":"butter",
+        "kosher":"pareve",
+        "tags": "spread, cooking, baking",
+        "knownConversions": {
+            "cup": 227,
+        }
+    },
 
 
 }

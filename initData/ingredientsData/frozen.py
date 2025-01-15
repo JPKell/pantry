@@ -3,7 +3,7 @@ from constants import *
 frozen = {
     "frozen corn" : {
         "displayName":"frozen corn",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"freezer",
         "processedStorage":"freezer",
         "shelfLife":365,

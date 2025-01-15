@@ -12,15 +12,21 @@ class Chef:
         self.pantry = pantry
         self.markets = []
         self.__get_markets__()
-        self.recipes = []
-        self.__get_recipes__()
+        self._recipes = []
+        # self.__get_recipes__()
+
+    @property
+    def recipes(self):
+        if len(self._recipes) == 0:
+            self.__get_recipes__()
+        return self._recipes
 
     ## Init functions
     def __get_markets__(self):
         self.markets = [Market(x['name']) for x in self.db.query("SELECT * FROM markets")]
 
     def __get_recipes__(self):  
-        self.recipes = [Recipe(x['name']) for x in self.db.query("SELECT * FROM recipes")]
+        self._recipes = [Recipe(x['name']) for x in self.db.query("SELECT * FROM recipes")]
 
     def makeRecipe(self, recipe: Recipe):
         # Check for stock

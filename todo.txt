@@ -1,7 +1,2 @@
-
-
-
-
-
-
-
+- Allow you to cancel changes in database tables
+- get ingredient pricing compare input working

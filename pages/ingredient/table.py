@@ -9,10 +9,7 @@ def ingredient_table():
             <h1>Ingredients</h1>
         </div>
         <div class="col-2 mt-2">
-            <div class="form-check form-switch">
-                <input class="form-check-input px-4 py-2 me-2 editToggle" type="checkbox" onchange="toggleEditMode(document.querySelector('.editToggle:checked'));">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Edit mode</label>
-            </div>
+
         </div>
     </div>
     <table id="ingredients" class="table table-striped table-hover table-sm">
@@ -21,7 +18,6 @@ def ingredient_table():
                 <th id="name" scope="col" width="10%">Name</th>
                 <th id="displayName" scope="col">displayName</th>
                 <th id="units" scope="col">Units</th>
-                <th id="size" scope="col">Size</th>
                 <th id="rawStorage" scope="col">Raw storage</th>
                 <th id="processedStorage" scope="col">Processed storage</th>
                 <th id="shelfLife" scope="col">Shelf life</th>
@@ -42,8 +38,7 @@ def ingredient_table():
         <tr class="overflow-hidden">
             <td>{ingredient.name}</td>
             <td>{ingredient.displayName}</td>
-            <td>{ingredient.measurement}</td>
-            <td>{ingredient.size}</td>
+            <td>{ingredient.unit}</td>
             <td>{ingredient.rawStorage}</td>
             <td>{ingredient.processedStorage}</td>
             <td>{ingredient.shelfLife}</td>

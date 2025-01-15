@@ -3,12 +3,12 @@ from constants import *
 greens = {
     "chives"    : {
         "displayName":"chives",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"refrigerator",
         "processedStorage":"refrigerator",
         "shelfLife":7,
-        "category":"greens",
-        "subcategory":"herb",
+        "category":"herbs and spices",
+        "subcategory":"fresh herbs",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
         "knownConversions": {
@@ -17,12 +17,12 @@ greens = {
     },
     "cilantro"  : {
         "displayName":"cilantro",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"refrigerator",
         "processedStorage":"refrigerator",
         "shelfLife":7,
-        "category":"greens",
-        "subcategory":"herb",
+        "category":"herbs and spices",
+        "subcategory":"fresh herbs",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
         "knownConversions": {
@@ -32,12 +32,12 @@ greens = {
     },
     "italian parsley"   : {
         "displayName":"parsley",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"refrigerator",
         "processedStorage":"refrigerator",
         "shelfLife":7,
-        "category":"greens",
-        "subcategory":"herb",
+        "category":"herbs and spices",
+        "subcategory":"fresh herbs",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
         "knownConversions": {
@@ -47,12 +47,12 @@ greens = {
     },
     "parsley"   : {
         "displayName":"parsley",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"refrigerator",
         "processedStorage":"refrigerator",
         "shelfLife":7,
-        "category":"greens",
-        "subcategory":"herb",
+        "category":"herbs and spices",
+        "subcategory":"fresh herbs",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
         "knownConversions": {
@@ -63,12 +63,12 @@ greens = {
     },
     "tarragon"  : {
         "displayName":"tarragon",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"refrigerator",
         "processedStorage":"refrigerator",
         "shelfLife":7,
-        "category":"greens",
-        "subcategory":"herb",
+        "category":"herbs and spices",
+        "subcategory":"fresh herbs",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
         "knownConversions": {
@@ -78,12 +78,12 @@ greens = {
     },
     "thyme"     : {
         "displayName":"thyme",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"refrigerator",
         "processedStorage":"refrigerator",
         "shelfLife":7,
-        "category":"greens",
-        "subcategory":"herb",
+        "category":"herbs and spices",
+        "subcategory":"fresh herbs",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
         "knownConversions": {
@@ -93,12 +93,12 @@ greens = {
     },
     "mint": {
         "displayName":"mint",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"refrigerator",
         "processedStorage":"refrigerator",
         "shelfLife":7,
-        "category":"greens",
-        "subcategory":"herb",
+        "category":"herbs and spices",
+        "subcategory":"fresh herbs",
         "kosher":"pareve",
         "tags":"garnish, seasoning, salad, soup",
         "knownConversions": {

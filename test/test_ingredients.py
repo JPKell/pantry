@@ -18,7 +18,7 @@ class TestIngredients(unittest.TestCase):
         # create it
         initData = {
             "displayName":"all-purpose flour",
-            "measurement":"g", 
+            "unit":"g", 
             "rawStorage":"room temperature", 
             "processedStorage":"room temperature",
             "shelfLife":365, 
@@ -48,12 +48,12 @@ class TestIngredients(unittest.TestCase):
         ap_flour = Ingredient("ap flour",qty=120, db=test_db)
 
         # test display unit
-        self.assertEqual(ap_flour.measurement, "g")
+        self.assertEqual(ap_flour.unit, "g")
         self.assertEqual(ap_flour.qty, 120)
 
         ap_flour.displayUnit = "cup"
         self.assertEqual(ap_flour.displayUnit, "cup")
-        self.assertEqual(ap_flour.measurement, "cup")
+        self.assertEqual(ap_flour.unit, "cup")
         self.assertEqual(ap_flour.qty, 1)
 
     def test_metric_mass_to_mass_conversions(self):
@@ -147,7 +147,7 @@ class TestIngredients(unittest.TestCase):
     def test_each_to_bunch(self):
         initData = {
             "displayName":"widget",
-            "measurement":"each", 
+            "unit":"each", 
             "knownConversions": {"bunch": 10}
         }
 

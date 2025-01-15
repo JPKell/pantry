@@ -8,7 +8,7 @@ class Ingredient:
 
     Base measures are always metric so the conversions only need to go one way. Plus metric is way better
     '''
-    def __init__(self, name: str, qty:int=None, qtyUnit:str=None, size=None, prep=None, initData:dict=None, db=db):
+    def __init__(self, name: str, qty:int=None, qtyUnit:str=None, prep=None, initData:dict=None, db=db):
         self.db = db # This is the database connection, it is passed in so that the class can be tested
         self._converter = Converter()
 
@@ -23,24 +23,25 @@ class Ingredient:
         #
         # displayName is the name that will be displayed to the user and can be anything. 
         # All-purpose flour,large free range egg, etc.    
-        self.displayName      = ""    # name for display
-        self._measurement     = ""    # gram, ml, each, etc.
-        self.size             = ""    # for ingredients that have sizes ( large egg, small onion, etc.)
-        self.rawStorage       = ""    # refrigerator, pantry, etc.
-        self.processedStorage = ""    # refrigerator, pantry, etc.
-        self.shelfLife        = 0     # in days
-        self.notes            = ""    #
-        self.tags             = ""    # tags for searching
-        self.category         = ""    # protein, vegetable, etc.
-        self.subcategory      = ""    # beef, tofu, leafy green, tuber, etc.
-        self.kosher           = ""    # flesh, dairy, pareve, treif
-        self.knownConversions = {}    # conversions to base unit
+        self.displayName:str      = None    # name for display
+        self._unit:str            = None    # gram, ml, each, etc.
+        self.rawStorage:str       = None    # refrigerator, pantry, etc.
+        self.processedStorage:str = None    # refrigerator, pantry, etc.
+        self.shelfLife:int        = None    # in days
+        self.notes:str            = None    #
+        self.tags:str             = None    # tags for searching
+        self.category:str         = None    # protein, vegetable, etc.
+        self.subcategory:str      = None    # beef, tofu, leafy green, tuber, etc.
+        self.kosher:str           = None    # flesh, dairy, pareve, treif
+        self.knownConversions     = {}    # conversions to base unit
+        self.alternatives  = []    # list of alternative ingredients
 
         ######################
         # Instance attributes
         #   These are not stored in the database but are used for the instance 
         #   to carry details about the ingredients state
     
+        self.purchasePrice = 0     # price paid of the ingredient
         self.prep        = ""    # how the ingredient is prepared. Used for recipes
         self.displayUnit = ""    # override the unit to display the qty in.
 
@@ -51,17 +52,15 @@ class Ingredient:
         self._qty = qty 
         
         ## Added new, make sure to populate changes in __set_attributes__ and __get_from_db__
-        self.purchasePrice = 0     # price paid of the ingredient
-        self.alternatives  = []    # list of alternative ingredients
 
 
 
     # Overrides
     def __str__(self):
-        return f"{self._qty}{self.measurement if self.measurement != None else "" } of {self.displayName if self.displayName != None else self.name}"
+        return f"{self._qty}{self.unit if self.unit != None else "" } of {self.displayName if self.displayName != None else self.name}"
     
     def __repr__(self):
-        return f"{self.measurement if self.measurement != None else "" } {self.name}"
+        return f"{self.unit if self.unit != None else "" } {self.name}"
 
     def __eq__(self, value):
         if type(value) == str:
@@ -74,15 +73,15 @@ class Ingredient:
         return self.name == value
     
     @property
-    def measurement(self):
+    def unit(self):
         '''converts before returning the measurement if displayUnit is set'''
         if self.displayUnit:
             return self.displayUnit
-        return self._measurement
+        return self._unit
     
-    @measurement.setter
-    def measurement(self, value):
-        self._measurement = value
+    @unit.setter
+    def unit(self, value):
+        self._unit = value
 
     @property
     def qty(self):
@@ -115,28 +114,26 @@ class Ingredient:
             for k,v in initData.items():
                 setattr(self, k, v)
         # handle the class properties separately
-        self._measurement      = initData.get("measurement", None)      
+        self._unit      = initData.get("unit", None)      
 
         self._converter.knownConversions = self.knownConversions
-        self._converter.baseUnit = self.measurement
+        self._converter.baseUnit = self.unit
         self.__add_to_db__()
 
     def __get_from_db__(self):
         '''Get the ingredient from the database'''
-        size = f"AND size = '{self.size}'" if self.size else ""
-        _dict = self.db.queryOne(f"SELECT * FROM ingredients WHERE name = '{self.name.lower()}' {size}")
+        _dict = self.db.queryOne(f"SELECT * FROM ingredients WHERE name = '{self.name.lower()}';")
         if len(_dict) > 0:
             for k,v in _dict.items():
                 setattr(self, k, v)
             # handle the class properties separately
-            self._measurement = _dict.get("measurement", None)
+            self._unit = _dict.get("unit", None)
 
-            alts = self.db.query(f"SELECT * FROM ingredient_alternatives WHERE ingredient = '{self.name}'")
+            alts = self.db.query(f"SELECT * FROM ingredient_alternatives WHERE ingredient = '{self.name.lower()}'")
             self.alternatives = [x['alternative'] for x in alts]
-
             self.knownConversions = self.__get_conversions__()
             self._converter.knownConversions = self.knownConversions
-            self._converter.baseUnit = self.measurement
+            self._converter.baseUnit = self.unit
         else:
             raise Exception(f"Ingredient {self.name} not found in the database")
 
@@ -156,7 +153,7 @@ class Ingredient:
     def __add_to_db__(self) -> None:
         '''Store the ingredient in the database'''
         _dict = {**self.__dict__} # deep copy
-        _dict['measurement'] = self._measurement
+        _dict['unit'] = self._unit
 
         # Conversions are stored in a separate table and must be removed first
         if "knownConversions" in _dict:
@@ -187,5 +184,6 @@ class Ingredient:
         results = self.db.query(f"SELECT * FROM conversions WHERE name = '{self.name.lower()}'")
 
         if len(results) == 0:
-            raise Exception("No conversions available for this ingredient")
+            return {}
+            # raise Exception("No conversions available for this ingredient")
         return {x["fromMeasure"]:x["factor"] for x in results}

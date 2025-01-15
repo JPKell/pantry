@@ -3,11 +3,11 @@ from constants import *
 dryGoods = {
       "sesame seeds" : {
         "displayName":"sesame seeds",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"seed", 
+        "category":"nuts and seeds", 
         "subcategory":"sesame", 
         "kosher":"pareve",
         "tags": "cooking, salad, dressing",
@@ -17,11 +17,11 @@ dryGoods = {
     },
         "peanut butter" : {
         "displayName":"peanut butter",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"nut", 
+        "category":"nuts and seeds", 
         "subcategory":"peanut", 
         "kosher":"pareve",
         "tags": "spread, sandwich, snack",
@@ -31,7 +31,7 @@ dryGoods = {
     },
         "white rice" : {
         "displayName":"white rice",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
@@ -45,11 +45,11 @@ dryGoods = {
     },
     "popcorn kernels" : {
         "displayName":"popcorn kernels",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"grain", 
+        "category":"snack", 
         "subcategory":"popcorn", 
         "kosher":"pareve",
         "tags": "snack, side, grain",
@@ -57,14 +57,14 @@ dryGoods = {
             "cup": 200,      
         }
     },
-        "panko" : {
+    "panko" : {
         "displayName":"panko bread crumbs",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"grain", 
-        "subcategory":"bread", 
+        "category":"dry goods", 
+        "subcategory":"breadings", 
         "kosher":"pareve",
         "tags": "breading, coating, frying",
         "knownConversions": {
@@ -72,10 +72,9 @@ dryGoods = {
         },
 
     },
-    
-    "dates" : {
+       "dates" : {
         "displayName":"dates",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
@@ -87,10 +86,9 @@ dryGoods = {
             "cup": 80,      
         }
     },
-    
-    "corn grits" : {
+       "corn grits" : {
         "displayName":"corn grits",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"refrigerator", 
         "shelfLife":365, 
@@ -104,7 +102,7 @@ dryGoods = {
     },
     "rolled oats" : {
         "displayName":"rolled oats",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"refrigerator", 
         "shelfLife":365, 
@@ -116,15 +114,14 @@ dryGoods = {
             "cup": 80,      
         }
     },
-    
-    "walnut pieces" : {
+       "walnut pieces" : {
         "displayName":"walnut pieces",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
-        "category":"nut", 
-        "subcategory":"walnut", 
+        "category":"nuts and seeds", 
+        "subcategory":"nuts", 
         "kosher":"pareve",
         "tags": "snack, baking, salad",
         "knownConversions": {
@@ -133,7 +130,7 @@ dryGoods = {
     },
     "dried spaghetti" : {
         "displayName":"dried spaghetti",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"refrigerator", 
         "shelfLife":365, 
@@ -147,12 +144,12 @@ dryGoods = {
     },
     "pumpkin seeds": {
         "displayName":"pumpkin seeds",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"seed",
-        "subcategory":"pumpkin",
+        "category":"nuts and seeds",
+        "subcategory":"seeds",
         "kosher":"pareve",
         "tags": "snack, salad, baking",
         "knownConversions": {
@@ -161,12 +158,12 @@ dryGoods = {
     },
     "raw almonds": {
         "displayName":"raw almonds",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"nut",
-        "subcategory":"almond",
+        "category":"nuts and seeds",
+        "subcategory":"nuts",
         "kosher":"pareve",
         "tags": "snack, salad, baking",
         "knownConversions": {
@@ -175,7 +172,7 @@ dryGoods = {
     },
     "arborio rice": {
         "displayName":"arborio rice",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
@@ -189,12 +186,12 @@ dryGoods = {
     },
     "sunflower seeds": {
         "displayName":"sunflower seeds",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"seed",
-        "subcategory":"sunflower",
+        "category":"nuts and seeds",
+        "subcategory":"seeds",
         "kosher":"pareve",
         "tags": "snack, salad, baking",
         "knownConversions": {
@@ -203,12 +200,12 @@ dryGoods = {
     },
     "dried pinto beans": {
         "displayName":"pinto beans",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"bean",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, mexican",
         "knownConversions": {
@@ -217,12 +214,12 @@ dryGoods = {
     },
     "dried kidney beans": {
         "displayName":"kidney beans",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"bean",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, chili",
         "knownConversions": {
@@ -231,12 +228,12 @@ dryGoods = {
     },
     "dried shitake mushrooms": {
         "displayName":"shitake mushrooms",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
-        "category":"fungus",
-        "subcategory":"mushroom",
+        "category":"mushroom",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, asian",
         "knownConversions": {
@@ -246,12 +243,12 @@ dryGoods = {
     },
     "dried red lentils": {
         "displayName":"red lentils",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"lentil",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, indian",
         "knownConversions": {
@@ -260,12 +257,12 @@ dryGoods = {
     },
     "dried green lentils": {
         "displayName":"green lentils",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"lentil",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, french",
         "knownConversions": {
@@ -274,12 +271,12 @@ dryGoods = {
     },
     "dried bean soup mix": {
         "displayName":"dried bean soup mix",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"soup",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, soup",
         "knownConversions": {
@@ -288,12 +285,12 @@ dryGoods = {
     },
     "dried black eyed beans": {
         "displayName":"dried black eyed beans",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"bean",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, soup",
         "knownConversions": {
@@ -302,42 +299,40 @@ dryGoods = {
     },
     "dried black beans": {
         "displayName":"dried black beans",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"bean",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, soup",
         "knownConversions": {
             "cup": 150,
         }
     },
-        "dried cherries": {
+    "dried cherries": {
         "displayName":"dried cherries",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
         "category":"fruit",
-        "subcategory":"cherry",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "snack, salad, baking",
         "knownConversions": {
             "cup": 140,
         }
     },
-    
-
     "instant noodles": {
         "displayName":"instant noodles",
-        "measurement":"each",
+        "unit":"each",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"grain",
-        "subcategory":"noodle",
+        "category":"dry goods",
+        "subcategory":"instant",
         "kosher":"pareve",
         "tags": "main, side, snack",
         "knownConversions": {
@@ -346,11 +341,11 @@ dryGoods = {
     },
     "tortilla chips": {
         "displayName":"tortilla chip",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"grain",
+        "category":"snack",
         "subcategory":"chip",
         "kosher":"pareve",
         "tags": "snack, side, dip",
@@ -360,12 +355,12 @@ dryGoods = {
     },
     "matzo meal": {
         "displayName":"matzo meal",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"grain",
-        "subcategory":"meal",
+        "category":"dry goods",
+        "subcategory":"breadings",
         "kosher":"pareve",
         "tags": "baking, coating, frying",
         "knownConversions": {
@@ -374,12 +369,12 @@ dryGoods = {
     },
     "dried chickpeas": {
         "displayName":"dried chickpeas",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"chickpea",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, salad",
         "knownConversions": {
@@ -388,12 +383,12 @@ dryGoods = {
     },
     "dried fava beans": {
         "displayName":"dried fava beans",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"fava",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, salad",
         "knownConversions": {
@@ -402,12 +397,12 @@ dryGoods = {
     },
     "dried navy beans": {
         "displayName":"dried navy beans",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
         "category":"legume",
-        "subcategory":"bean",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, salad",
         "knownConversions": {
@@ -416,12 +411,12 @@ dryGoods = {
     },
     "dried wild mushrooms": {
         "displayName":"dried wild mushrooms",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"refrigerator",
         "shelfLife":365,
-        "category":"fungus",
-        "subcategory":"mushroom",
+        "category":"mushroom",
+        "subcategory":"dried",
         "kosher":"pareve",
         "tags": "main, side, salad",
         "knownConversions": {
@@ -430,12 +425,12 @@ dryGoods = {
     },
     "dried habanero": {
         "displayName":"dried habanero",
-        "measurement":"g",
+        "unit":"g",
         "rawStorage":"room temperature",
         "processedStorage":"room temperature",
         "shelfLife":365,
-        "category":"pepper",
-        "subcategory":"habanero",
+        "category":"herbs and spices",
+        "subcategory":"chillies",
         "kosher":"pareve",
         "tags": "spicy, main, side",
         "knownConversions": {

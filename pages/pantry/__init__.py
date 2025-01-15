@@ -2,7 +2,7 @@ from flask import Blueprint, json, redirect, request, session, url_for, render_t
 
 from modules.ingredients import Ingredient
 
-from app import db, chef, pantry
+from app import db, chef, pantry, nav
 
 bp = Blueprint('pantry', __name__) 
 
@@ -27,9 +27,9 @@ def pantry_page():
         body += f'''
         <tr>
             <td>{ingredient.name}</td>
-            <td>{data['qty']} {ingredient.measurement}</td>
+            <td>{data['qty']} {ingredient.unit}</td>
             <td>${data['marketDict']['total']:.2f}</td>
         </tr>'''
     body += "</tbody></table>"
 
-    return render_template("index.html", body = body, activeNav = "pantry")
+    return render_template("index.html", body = body, nav = nav)

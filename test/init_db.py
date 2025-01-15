@@ -88,7 +88,7 @@ for conversion in basicConversions:
 from modules.ingredients import Ingredient
 data = {
         "displayName":"all-purpose flour",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature",
         "shelfLife":365, 
@@ -106,7 +106,7 @@ Ingredient('ap flour', initData=data, db=test_db)
 
 data = {
         "displayName":"salt",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
@@ -123,7 +123,7 @@ Ingredient('salt', initData=data, db=test_db)
 
 data = {
         "displayName":"water",
-        "measurement":"ml", 
+        "unit":"ml", 
         "rawStorage":"room temperature", 
         "processedStorage":"room temperature", 
         "shelfLife":365, 
@@ -140,7 +140,7 @@ Ingredient('water', initData=data, db=test_db)
 
 data =  {
         "displayName":"instant dry yeast",
-        "measurement":"g", 
+        "unit":"g", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
         "shelfLife":365, 
@@ -157,7 +157,7 @@ Ingredient('instant dry yeast', initData=data, db=test_db)
 
 data = {
         "displayName":"large egg",
-        "measurement":"each", 
+        "unit":"each", 
         "rawStorage":"refrigerator", 
         "processedStorage":"refrigerator", 
         "shelfLife":30, 
