@@ -348,6 +348,12 @@ markets = {
             "dried wild mushrooms": {'price': 21.99, 'priceUnit': 'g', 'brand': 'The wild Mushroom Co', 'size': 454 },
         }
     },
+    "superstore": {
+        "location": "350 SE Marine Dr, Vancouver",
+        "distance": 6.7,
+        "notes": "Theres a good kosher selection here",
+        "search": "https://www.realcanadiansuperstore.ca/en/search?search-bar=",
+    },
     "london drugs": {
         "location": "525 W Broadway, Vancouver",
         "distance": 2.4,

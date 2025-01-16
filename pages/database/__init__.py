@@ -28,7 +28,7 @@ def table_table(table:str):
         <div class="col-sm-10">
             <h1>{table.replace("_", " ").capitalize()}</h1>
         </div>
-        <div class="col-sm mt-2">
+        <div class="col-sm d-flex align-items-center justify-content-center">
             <div class="form-check form-switch">
                 <input id="editCheck" class="form-check-input px-4 py-2 me-2 editToggle" type="checkbox" onchange="toggleEditMode(document.querySelector('.editToggle:checked'));">
                 <label for="editCheck">Edit</label>

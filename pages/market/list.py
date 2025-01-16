@@ -20,25 +20,30 @@ def market_list(name:str) -> str:
             </div>
             <div class="col-sm-4 p-0 d-flex align-items-center justify-content-center">
                 <table class="table table-sm table-borderless table-hover table-light mb-0">
-                    <tr><td><b>{market.location}</b></td></tr>
+                    <tr><td><b><a target="_blank" href="https://www.google.ca/maps/place/{market.location.replace(" ",'+')}">{market.location}</a></b></td></tr>
                     <tr><td>{market.distance} km</td></tr>
                 </table>    
             </div>
         </div>
-        <div class="col-xl-6 row">
+        <div class="col-xl-6 row ">
+            <div class="col-10"></div>
+            <div class="col-2 form-check form-switch d-flex align-items-center justify-content-center">
+                <input id="editCheck" class="form-check-input px-4 py-2 me-2 editToggle" type="checkbox" onchange="toggleEditMode(document.querySelector('.editToggle:checked'));">
+                <label for="editCheck">Edit</label>
+            </div>
         </div>
     </div>
     <hr class="mt-0 pt-0"/>
     <div class="row">
-        <table class="table table-striped table-hover table-sm">
-            <thead>
-                <tr>
-                    <th>Ingredient</th>
-                    <th>Price</th>
-                    <th>Unit</th>
-                    <th>Size</th>
-                    <th>Cost</th>
-                    <th>Brand</th>
+        <table id="market_ingredients" class="table table-striped table-hover table-sm">
+            <thead >
+                <tr class="overflow-hidden">
+                    <th id="market" width="5%" class="primaryKey" scope="col">Name</th>
+                    <th id="ingredient" class="primaryKey" scope="col">Ingredient</th>
+                    <th id="price" class="typeNumber" scope="col">Price</th>
+                    <th id="priceUnit" scope="col">Unit</th>
+                    <th id="size" class="typeNumber" scope="col">Size</th>
+                    <th id="brand" scope="col">Brand</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,30 +57,25 @@ def market_list(name:str) -> str:
         price = None
         unit = None
         size = None
-        cost = None
         brand = None
         if details:
             price = details['price']
             unit = details['priceUnit']
             size = details['size']
-            cost = details['price']
             brand = details['brand']
 
         body += f'''
-            <tr>
-                <td><a href="{market.search}{ingredient.name.replace(" ", "%20")}" target="_blank">{ingredient.name.capitalize()}</a></td>
+            <tr class="overflow-hidden">
+                <td class="primaryKey">{market.name}</td>
+                <td class="primaryKey"><a href="{market.search}{ingredient.name.replace(" ", "%20")}" target="_blank">{ingredient.name.capitalize()}</a></td>
                 <td>{currency(price) if price else ''}</td>
                 <td>{ingredient.unit if unit else ''}</td>
                 <td>{number(size) if size else ''}</td>
-                <td>{currency(cost) if cost else ''}</td>
                 <td>{brand if brand else ''}</td>
             </tr>
         '''
-
-
-    body += f'''
-    </div>
-        '''
+    
+    body += f'</tbody></table></div>'
 
     return body
 

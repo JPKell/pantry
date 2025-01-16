@@ -56,3 +56,4 @@ initData = {
 # for k,v in r.__dict__.items():
 #     print(k,v)
 
+db.execute("delete from market_ingredients where market = 'superstore' and ingredient = 'dried fava beans'")

@@ -21,15 +21,17 @@ def pantry_page():
         <tbody>
     '''
     pv = chef.detailedPantryValue()
-
+    total = sum([x['marketDict']['total'] for x in pv.values()])
+    totalSum = 0
     for i, data in pv.items():
         ingredient = Ingredient(i)
+        totalSum += data['marketDict']['total']
         body += f'''
         <tr>
             <td>{ingredient.name}</td>
             <td>{data['qty']} {ingredient.unit}</td>
             <td>${data['marketDict']['total']:.2f}</td>
         </tr>'''
-    body += "</tbody></table>"
+    body += "</tbody></table><h4>Total: ${:.2f}</h4>".format(totalSum)
 
     return render_template("index.html", body = body, nav = nav)

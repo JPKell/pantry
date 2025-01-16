@@ -47,9 +47,14 @@ function editCell(event) {
       // create the input field for the editingCell
       inputField = document.createElement('input');
       inputField.type = 'text';
+      if (editingCell.classList.contains('typeNumber')) {
+      
+        inputField.type = 'number';}
       oldValue = editingCell.innerText;
       inputField.value = oldValue;
-      inputField.size = inputField.value.length;
+      if ( inputField.value.length > 0 ) {
+          inputField.size = inputField.value.length;
+      }
       inputField.onblur = function() {
         editingCell.innerText = inputField.value;
       };

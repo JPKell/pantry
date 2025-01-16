@@ -90,10 +90,12 @@ class Market:
                 _dict.pop(key)
 
         self.db.insert("markets", _dict)
-        for name, data in ingredients.items():
-            data['ingredient'] = name.replace("'", "''")
-            data['market'] = self.name.replace("'", "''")
-            
 
-            self.db.insert("market_ingredients", data)
+        if len(ingredients) > 0:
+            for name, data in ingredients.items():
+                data['ingredient'] = name.replace("'", "''")
+                data['market'] = self.name.replace("'", "''")
+                
+
+                self.db.insert("market_ingredients", data)
 
