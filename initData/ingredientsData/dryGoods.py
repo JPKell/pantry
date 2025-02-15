@@ -438,4 +438,18 @@ dryGoods = {
             "each": 1,
         }
     },
+        "black tea" : {
+        "displayName":"black tea",
+        "unit":"bag", 
+        "rawStorage":"room temperature", 
+        "processedStorage":"refrigerator", 
+        "shelfLife":365, 
+        "category":"beverage", 
+        "subcategory":"tea", 
+        "kosher":"pareve",
+        "tags": "beverage, tea, hot",
+        "knownConversions": {
+            "g": 2,      
+        }
+    },
  }

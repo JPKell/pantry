@@ -1,9 +1,9 @@
 from .database import db
 
 from .ingredients import Ingredient
+from .foodstuff import Foodstuff
 
-
-class Recipe:
+class Recipe(Foodstuff):
     def __init__(self, 
                 name: str, 
                 servingQty=None,    # How many servings the recipe should yield. Different than yield. 
@@ -16,11 +16,14 @@ class Recipe:
                 yieldUnit=None,    # loaf, cake, cup, g etc.
                 initData=None,      # A dictionary of recipe data to initialize the recipe and write to the database
                 scale=1,            # Scale the recipe by this factor
+                recipePart:str = None,
+                prep:str = None,
+                displayUnit:str = None,
                 db=db
                 ): 
-        self.db = db
+        super().__init__(db=db, recipePart=recipePart, prep=prep, displayUnit=displayUnit)
         self._scale = scale
-        self.name = name
+        self.name = name.lower()
 
         ######################
         # These attributes are stored in the database and will
@@ -126,12 +129,12 @@ class Recipe:
         for ingredient in self.ingredients:
             # Ingredients can be either a Recipe or an Ingredient and need to retrive the data differently
             if isinstance(ingredient, Recipe):
-                self.db.execute(f"INSERT INTO recipe_ingredients (recipe_id, ingredient, qty, isRecipe) VALUES ({self.id}, '{ingredient.name.replace("'", "''")}',  {ingredient.scale}, 1)")
+                self.db.execute(f"INSERT INTO recipe_ingredients (recipe_id, ingredient, qty, isRecipe, recipePart) VALUES ({self.id}, '{ingredient.name.replace("'", "''")}',  {ingredient.scale}, 1, '{ingredient.recipePart.replace("'", "''")}')")
             else:
                 prep = "NULL"
                 if ingredient.prep:
                     prep = f"'{ingredient.prep}'"
-                self.db.execute(f"INSERT INTO recipe_ingredients (recipe_id, ingredient, prep, qty, isRecipe) VALUES ({self.id}, '{ingredient.name.replace("'", "''")}', {prep}, {ingredient.qty}, 0)")
+                self.db.execute(f"INSERT INTO recipe_ingredients (recipe_id, ingredient, prep, qty, isRecipe, recipePart) VALUES ({self.id}, '{ingredient.name.replace("'", "''")}', {prep}, {ingredient.qty}, 0, '{ingredient.recipePart.replace("'", "''")}')")
         
         
         for i, step in enumerate(self.steps):
@@ -173,7 +176,7 @@ class Recipe:
                 recipe.scale = ingredient["qty"]
                 self.ingredients.append(recipe)
             else:
-                self.ingredients.append(Ingredient(ingredient["ingredient"], qty=ingredient["qty"], prep=ingredient["prep"]))
+                self.ingredients.append(Ingredient(ingredient["ingredient"], qty=ingredient["qty"], prep=ingredient["prep"], recipePart=ingredient["recipePart"]))
 
         steps = self.db.query(f"SELECT description FROM recipe_steps WHERE recipe_id = {self.id}")
         if len(steps) == 0:

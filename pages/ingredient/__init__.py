@@ -3,6 +3,7 @@ from flask import Blueprint, json, redirect, request, session, url_for, render_t
 from app import nav
 from pages.ingredient.table import ingredient_table
 from pages.ingredient.detail import ingredient_detail
+from pages.ingredient.category import category_table
 
 
 bp = Blueprint('ingredient', __name__) 
@@ -23,3 +24,9 @@ def ingredients(name:str=None):
     return render_template("index.html", 
                            body = ingredient_table(), 
                            nav = nav)
+
+@bp.route("/ingredients/category/<string:category>")
+def ingredient_category(category:str):
+    return render_template("index.html", 
+                        body = category_table(category=category), 
+                        nav = nav)

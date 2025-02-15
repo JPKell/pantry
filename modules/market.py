@@ -73,10 +73,13 @@ class Market:
         if not factor:
             raise ValueError(f"Conversion not found for {_dict['priceUnit']}")
         factor = factor[0]['factor']
-        _dict['total'] = ingredient.convert(toUnit=_dict['priceUnit']) * (_dict['price'] / _dict['size'] )# / factor
+        try:
+            _dict['total'] = ingredient.convert(toUnit=_dict['priceUnit']) * (_dict['price'] / _dict['size'] )# / factor
 
-        return _dict
-
+            return _dict
+        except:
+            _dict['total'] = None
+            return _dict
 
 
     ## Private methods

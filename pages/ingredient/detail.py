@@ -7,7 +7,6 @@ from app import db, chef
 def ingredient_detail(name:str) -> str:
 
     ingredient = Ingredient(name)
-    print("MARCK", ingredient.__dict__)
 
     notes = ''
     if ingredient.notes != None:
@@ -32,9 +31,15 @@ def ingredient_detail(name:str) -> str:
 
     pricing_table += "</table></div>"
 
-    lowest_price = min(prices)
-    average_price = sum(prices) / len(prices)
-    highest_price = max(prices)
+    if len(prices) == 0:
+        pricing_table = "<div class='col-12'><h5>No pricing data available</h5></div>"
+        lowest_price = 0
+        average_price = 0
+        highest_price = 0
+    else:       
+        lowest_price = min(prices)
+        average_price = sum(prices) / len(prices)
+        highest_price = max(prices)
 
     ## conversions
     convs = db.query(f"SELECT * FROM conversions WHERE name = '{ingredient.name}'")
@@ -155,7 +160,7 @@ def ingredient_detail(name:str) -> str:
         <div class="col-lg-4">
             { conversions }
         </div>
-        { recipeHtml}
+        { recipeHtml }
         { altHtml }
     </div>
         '''

@@ -115,3 +115,21 @@ def initDb(db:Db):
         PRIMARY KEY (recipe_id, tag)
     ''')
 
+    ## From here on out these are changes to the database required to support new features
+
+    db.execute("ALTER TABLE recipe_ingredients ADD COLUMN recipePart TEXT")
+
+    db.create_table("recipe_ingredients_bu",'''
+            recipe_id   INTEGER,
+            ingredient  TEXT,
+            qty         REAL,
+            prep        TEXT, 
+            isRecipe    BOOLEAN,
+            recipePart  TEXT,
+            PRIMARY KEY (recipe_id, ingredient, recipePart)
+        ''')
+
+    db.execute("INSERT INTO recipe_ingredients_bu SELECT * FROM recipe_ingredients")
+    db.execute("DROP TABLE recipe_ingredients")
+    db.execute("ALTER TABLE recipe_ingredients_bu RENAME TO recipe_ingredients")
+

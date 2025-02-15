@@ -13,11 +13,11 @@ def recipes_page(name:str=None):
     if name == None:
         return render_template("index.html", body = recipe_table(), nav = nav)
     else:
-        try:
+        # try:
             return render_template("index.html", body = recipe_detail(name), nav = nav)
-        except Exception as e:
-            html = f"""<div class="text-center p-5 m-5"><h1>Error when loading {name}</h1><p>{e}</p></div>"""
-            return render_template("index.html", body = html, nav = nav)
+        # except Exception as e:
+        #     html = f"""<div class="text-center p-5 m-5"><h1>Error when loading {name}</h1><p>{e}</p></div>"""
+        #     return render_template("index.html", body = html, nav = nav)
         
 
 @bp.route("/recipes/category/<string:category>")

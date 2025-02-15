@@ -50,18 +50,22 @@ def recipe_detail(name:str) -> str:
     if recipe.preheat:
         body += f"<h4>Preheat</h4><p>{recipe.preheat.capitalize()} {number(recipe.preheatTemp, 0) if recipe.preheatTemp != None else ''} {recipe.preheatUnit if recipe.preheatUnit else ''}</p>"
 
-
     body += f'''
             <h4>Ingredients</h4>
             <table class="table table-sm table-borderless table-hover">
         ''' 
-    for i in recipe.ingredients:
-        if isinstance(i, Recipe):
-            body += f'<tr><td>{number(i.yields, 0) if i.yields > 5 else number(i.yields) } {i.yieldUnit} {i.name}</td></tr>'
-        else:
-            _unit = i.unit if i.unit != 'each' else ''
-            s = 's' if i.qty > 1 and i.unit == 'each' else ''
-            body += f'<tr><td>{number(i.qty,0) if i.qty > 5 else number(i.qty)} {_unit} {i.displayName}{s} {i.prep}</td></tr>'
+
+    # Split the recipe ingredients into parts if required 
+    for part in list(set([x.recipePart for x in recipe.ingredients ])):
+        if part != None:
+            body += f'<tr><th>{part.capitalize()}</th></tr>'
+        for ingred in [ ri for ri in recipe.ingredients if ri.recipePart == None or ri.recipePart == part ]:
+            if isinstance(ingred, Recipe):
+                body += f'<tr><td>{number(ingred.yields, 0) if ingred.yields > 5 else number(ingred.yields) } {ingred.yieldUnit} {ingred.name}</td></tr>'
+            else:
+                _unit = ingred.unit if ingred.unit != 'each' else ''
+                s = 's' if ingred.qty > 1 and ingred.unit == 'each' else ''
+                body += f'<tr><td>{number(ingred.qty,0) if ingred.qty > 5 else number(ingred.qty)} {_unit} {ingred.displayName}{s} {ingred.prep if ingred.prep else ''}</td></tr>'
 
     body += '</table>'
 

@@ -1,15 +1,16 @@
 from .database import db
 from modules.converter import Converter
+from modules.foodstuff import Foodstuff
 
-class Ingredient:
+class Ingredient(Foodstuff):
     '''
     An ingredient name is unique and is the key to the database.
     The ingredient is stored in the database and can be retrieved by name.
 
     Base measures are always metric so the conversions only need to go one way. Plus metric is way better
     '''
-    def __init__(self, name: str, qty:int=None, qtyUnit:str=None, prep=None, initData:dict=None, db=db):
-        self.db = db # This is the database connection, it is passed in so that the class can be tested
+    def __init__(self, name: str, qty:int=None, qtyUnit:str=None, prep:str=None, recipePart:str=None, displayUnit:str=None, initData:dict=None, db=db):
+        super().__init__(db=db, recipePart=recipePart, prep=prep, displayUnit=displayUnit)
         self._converter = Converter()
 
         ######################
@@ -20,7 +21,6 @@ class Ingredient:
         #   For example flour must be defined as "ap flour" or an egg as "large egg"
         self.name             = name   
 
-        #
         # displayName is the name that will be displayed to the user and can be anything. 
         # All-purpose flour,large free range egg, etc.    
         self.displayName:str      = None    # name for display
@@ -34,7 +34,7 @@ class Ingredient:
         self.subcategory:str      = None    # beef, tofu, leafy green, tuber, etc.
         self.kosher:str           = None    # flesh, dairy, pareve, treif
         self.knownConversions     = {}    # conversions to base unit
-        self.alternatives  = []    # list of alternative ingredients
+        self.alternatives         = []    # list of alternative ingredients
 
         ######################
         # Instance attributes
@@ -42,8 +42,6 @@ class Ingredient:
         #   to carry details about the ingredients state
     
         self.purchasePrice = 0     # price paid of the ingredient
-        self.prep        = ""    # how the ingredient is prepared. Used for recipes
-        self.displayUnit = ""    # override the unit to display the qty in.
 
         self.__set_attributes__(initData)
         

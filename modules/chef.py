@@ -63,9 +63,12 @@ class Chef:
         lowestPrice = None
         for market in self.markets:
             marketPrice = market.getPrice(ingredient)
+            if marketPrice == None:
+                continue
+
             if marketPrice != None and lowestPrice == None:
                 lowestPrice = marketPrice
-            elif marketPrice != None and lowestPrice["total"] > marketPrice["total"]:
+            elif marketPrice["total"] != None and lowestPrice["total"] != None and lowestPrice["total"] > marketPrice["total"]:
                 lowestPrice = marketPrice
 
         if lowestPrice == None:

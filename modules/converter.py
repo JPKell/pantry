@@ -22,16 +22,17 @@ measures = {
      "lb":    {"factor": LB,     "name": "pound",       "type":"mass",  "system": "imperial"},
     
     # Count 
-     "each":  {"factor": 1,      "name": "each",        "type":"count", "system": "metric"},
-     "unit":  {"factor": 1,      "name": "unit",        "type":"count", "system": "metric"},
-     "dozen": {"factor": 12,     "name": "dozen",       "type":"count", "system": "metric"},
-     "slice": {"factor": 1,      "name": "slice",       "type":"count", "system": "metric"},
-     "loaf":  {"factor": 1,      "name": "loaf",        "type":"count", "system": "metric"},
-     "clove": {"factor": 1,      "name": "clove",       "type":"count", "system": "metric"},
-     "whole": {"factor": 1,      "name": "whole",       "type":"count", "system": "metric"},
+     "bag":   {"factor": 1,      "name": "sprig",       "type":"count", "system": "metric"},
      "bunch": {"factor": 1,      "name": "bunch",       "type":"count", "system": "metric"},
-     "stick": {"factor": 1,      "name": "stick",       "type":"count", "system": "metric"},
+     "clove": {"factor": 1,      "name": "clove",       "type":"count", "system": "metric"},
+     "dozen": {"factor": 12,     "name": "dozen",       "type":"count", "system": "metric"},
+     "each":  {"factor": 1,      "name": "each",        "type":"count", "system": "metric"},
+     "loaf":  {"factor": 1,      "name": "loaf",        "type":"count", "system": "metric"},
+     "slice": {"factor": 1,      "name": "slice",       "type":"count", "system": "metric"},
      "sprig": {"factor": 1,      "name": "sprig",       "type":"count", "system": "metric"},
+     "stick": {"factor": 1,      "name": "stick",       "type":"count", "system": "metric"},
+     "whole": {"factor": 1,      "name": "whole",       "type":"count", "system": "metric"},
+     "unit":  {"factor": 1,      "name": "unit",        "type":"count", "system": "metric"},
 
     # Temperature
      "c":     {"factor": 1,      "name": "celsius",     "type":"temperature", "system": "metric"},
